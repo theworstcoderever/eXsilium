@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>eXsilium!</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+  	<link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.css" rel="stylesheet">	
+	<style type="text/css">
+		.align {
+			text-align: center;
+			background-color: rgba(80,80,80,0.5);
+			margin: 0 auto;
+		}
+	</style>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/scrollreveal"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+</head>
+<body>
+	<div id="app" class="align">
+		<h1>点一下图片</h1>
+		<!-- <img src="https://b-ssl.duitang.com/uploads/item/201410/21/20141021170056_sCy2t.jpeg"
+		@click='popMsg'
+		style="margin-top:20px;"> -->
+		<template>
+			<v-layout style="margin-top: 20px;">
+				<v-flex xs12 sm6 offset-sm3>
+					<v-hover>
+						<v-card 
+						slot-scope="{ hover }"
+						:class="`elevation-${hover ? 12 : 2}`"
+						class="mx-auto"
+						width="344"
+						@click="popMsg">
+							<v-img src="https://b-ssl.duitang.com/uploads/item/201410/21/20141021170056_sCy2t.jpeg">
+							</v-img>
+						</v-card>
+					</v-hover>
+				</v-flex>
+			</v-layout>
+		</template>
+	</div>
+</body>
+<script>
+var vm = new Vue({
+	el: '#app',
+	data: {},
+	methods: {
+		popMsg: function(){
+			window.alert("经研究决定，现聘请梅润豪同志任葛洲坝换流站站长！");
+		}
+	},
+})
+</script>
+</html>
