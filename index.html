@@ -37,7 +37,7 @@
 					<v-btn icon @click.stop="searchBox = !searchBox">
 						<v-icon>search</v-icon>
 					</v-btn>
-					<v-btn icon @click.stop="like = !like">
+					<v-btn icon @click.stop="warn = !warn">
 						<v-icon>favorite</v-icon>
 					</v-btn>
 					
@@ -46,14 +46,20 @@
 							<v-icon>more_vert</v-icon>
 						</v-btn>
 						<v-list>
-							<v-list-tile>
-								<v-list-tile-title @click.stop="warn = !warn">咋回事啊</v-list-tile-title>
+							<v-list-tile @click.stop="warn = !warn">
+								<v-list-tile-title >功能准备中</v-list-tile-title>
 							</v-list-tile>
-							<v-list-tile>
-								<v-list-tile-title @click.stop="warn = !warn">咋回事啊</v-list-tile-title>
+							<v-list-tile @click.stop="warn = !warn">
+								<v-list-tile-title>功能准备中</v-list-tile-title>
 							</v-list-tile>
-							<v-list-tile>
-								<v-list-tile-title @click.stop="warn = !warn">咋回事啊</v-list-tile-title>
+							<v-list-tile @click.stop="warn = !warn">
+								<v-list-tile-title>功能准备中</v-list-tile-title>
+							</v-list-tile>
+							<v-list-tile @click.stop="warn = !warn">
+								<v-list-tile-title>功能准备中</v-list-tile-title>
+							</v-list-tile>
+							<v-list-tile @click.stop="warn = !warn">
+								<v-list-tile-title>功能准备中</v-list-tile-title>
 							</v-list-tile>
 						</v-list>
 					</v-menu>
@@ -62,6 +68,17 @@
 				<v-navigation-drawer v-model="drawer" absolute clipped temporary>
 					<h1 style="text-align: center">eXsilium</h1>
 					<v-divider></v-divider>
+					<v-list class="pa-1">
+						<v-list-tile avatar>
+						  <v-list-tile-avatar>
+							<img src="http://p2.qhimgs4.com/t0103958e8f265a8ac2.jpg">
+						  </v-list-tile-avatar>
+				
+						  <v-list-tile-content>
+							<v-list-tile-title>郑 ' S T E C H L A B</v-list-tile-title>
+						  </v-list-tile-content>
+						</v-list-tile>
+					  </v-list>
 					<h2 style="margin-top: 10px">内容准备中。。。</h2><br>
 					<h3>content not raedy...</h3><br>			
 				</v-navigation-drawer>
@@ -78,26 +95,13 @@
 						<v-card-title class="healine gray" primary-title>
 							提示
 						</v-card-title>
-						<v-card-text>啥也没有！</v-card-text>
+						<v-card-text>功能开发中</v-card-text>
 						<v-card-actions>
 							<v-spacer></v-spacer>
 							<v-btn flat @click="warn = false">知道了</v-btn>
 						</v-card-actions>
 					</v-card>
 				</v-dialog>
-
-				<v-dialog v-model="like" width=50%>
-						<v-card>
-							<v-card-title class="healine gray" primary-title>
-								提示
-							</v-card-title>
-							<v-card-text>你喜欢我？</v-card-text>
-							<v-card-actions>
-								<v-spacer></v-spacer>
-								<v-btn flat @click="like = false">是的</v-btn>
-							</v-card-actions>
-						</v-card>
-					</v-dialog>
 			</template>
 			
 			<h1 style="margin-top: 10px; text-align: center">内容准备中。。。</h1><br>
@@ -121,7 +125,15 @@
 										要联系我？
 									</v-card-title>
 									<v-card-text style="text-align: center">
-										hhhhrainbow@163.com
+										<span>
+											<v-icon size="18">email</v-icon>
+											hhhhrainbow@163.com
+										</span><br>
+										<span>
+											<v-icon size="18">person_add</v-icon>
+											源工的笑容由我们来守护
+										</span>
+										
 									</v-card-text>
 									
 									<v-card-actions>
@@ -135,7 +147,7 @@
 						</v-card-title>
 
 						<v-card-actions class="grey draken-3 justify-center">
-							&copy;2019 - <strong>[ʃ]hinKai/進階</strong>
+							&copy;2019 - <strong>[ʃ]inKai/進階</strong>
 						</v-card-actions>
 					</v-card>
 				</v-footer>
@@ -148,14 +160,14 @@
 <script>
 var vm = new Vue({
 	el: '#app',
-	data: {drawer: false, dialog: false, searchBox: false, warn: false, like: false,
+	data: {drawer: false, dialog: false, searchBox: false, warn: false,
 	caPics: [
 		{src: 'http://b2c.gaohangip.com//uploads/image/20180719/6366759285237224051597485.jpg'},
-		{src: 'https://b-ssl.duitang.com/uploads/item/201505/14/20150514113042_8Nyzd.thumb.700_0.jpeg'},
+		{src: 'http://dingyue.nosdn.127.net/sL3KSBM0g4A1p4l9m49qWutnmxCAfsrLfPyQUXXHxCFpn1534844361353.jpg'},
 		{src: 'http://dingyue.nosdn.127.net/Oxbz32bVfXQrIGT80mxLsXjfBkvZzJdT2eKOIkzPF6pP81536674190080compressflag.jpg'},
 		{src: 'https://pn.gexing.com/shaitu/2011/11/07/10564eb748c6d2a8f_600x.jpg'},
-		{src: 'https://b-ssl.duitang.com/uploads/item/201304/28/20130428150849_ckLKQ.thumb.1900_0.jpeg'},
-		{src: 'https://b-ssl.duitang.com/uploads/item/201311/05/20131105190143_PkkLa.thumb.1900_0.jpeg'}
+		{src: 'http://dingyue.nosdn.127.net/jjElLunYd8SBrNkLkgjlWkUHLaTRBFASPNVkn40MEK26G1528425708646.jpg'},
+		{src: 'http://qn.18touch.com/uploads/20180928/1538113729249094.jpg'}
 	]},
 	methods: {
 	},
