@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>eXsilium!</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+	<link href="../eXsilium/lib/CSS/animate.css" rel="stylesheet">
+	<link href="../eXsilium/lib/CSS/main.css" rel="stylesheet">
+  	<link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/scrollreveal"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+</head>
+<body>
+	<div id="app">
+		<div class="content">
+		<div name="nav"style="width: 100%">
+			<template>
+				<v-toolbar dense color="teal lightrn-3">
+					<v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+					
+					<transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" :duration="300">
+							<v-toolbar-title v-show="!searchBox">eXsilium</v-toolbar-title>
+					</transition>
+
+					<v-spacer></v-spacer>
+
+					<transition enter-active-class="animated zoomIn" leave-active-class="animated zoomOut" :duration="750">
+							<v-text-field v-show="searchBox" height="35" lable="Regular" 
+							placeholder="开始探索" clearable dark>
+							</v-text-field>
+					</transition>
+
+					<v-btn icon @click.stop="searchBox = !searchBox">
+						<v-icon>search</v-icon>
+					</v-btn>
+					<v-btn icon @click.stop="like = !like">
+						<v-icon>favorite</v-icon>
+					</v-btn>
+					
+					<v-menu transition="slide-y-transition">
+						<v-btn icon slot="activator">
+							<v-icon>more_vert</v-icon>
+						</v-btn>
+						<v-list>
+							<v-list-tile>
+								<v-list-tile-title @click.stop="warn = !warn">咋回事啊</v-list-tile-title>
+							</v-list-tile>
+							<v-list-tile>
+								<v-list-tile-title @click.stop="warn = !warn">咋回事啊</v-list-tile-title>
+							</v-list-tile>
+							<v-list-tile>
+								<v-list-tile-title @click.stop="warn = !warn">咋回事啊</v-list-tile-title>
+							</v-list-tile>
+						</v-list>
+					</v-menu>
+					
+				</v-toolbar>
+				<v-navigation-drawer v-model="drawer" absolute clipped temporary>
+					<h1 style="text-align: center">eXsilium</h1>
+					<v-divider></v-divider>
+					<h2 style="margin-top: 10px">内容准备中。。。</h2><br>
+					<h3>content not raedy...</h3><br>			
+				</v-navigation-drawer>
+			</template>
+
+			<template>
+				<v-carousel hide-controls interval="3000" style="z-index: -1">
+					<v-carousel-item v-for="(caPic,i) in caPics" :key="i" :src="caPic.src">
+					</v-carousel-item>
+				</v-carousel>
+
+				<v-dialog v-model="warn" width=50%>
+					<v-card>
+						<v-card-title class="healine gray" primary-title>
+							提示
+						</v-card-title>
+						<v-card-text>啥也没有！</v-card-text>
+						<v-card-actions>
+							<v-spacer></v-spacer>
+							<v-btn flat @click="warn = false">知道了</v-btn>
+						</v-card-actions>
+					</v-card>
+				</v-dialog>
+
+				<v-dialog v-model="like" width=50%>
+						<v-card>
+							<v-card-title class="healine gray" primary-title>
+								提示
+							</v-card-title>
+							<v-card-text>你喜欢我？</v-card-text>
+							<v-card-actions>
+								<v-spacer></v-spacer>
+								<v-btn flat @click="like = false">是的</v-btn>
+							</v-card-actions>
+						</v-card>
+					</v-dialog>
+			</template>
+			
+			<h1 style="margin-top: 10px; text-align: center">内容准备中。。。</h1><br>
+			<h3 style="text-align:center">content not raedy...</h3><br>
+
+		</div>
+
+		<div class="footer">
+			<template>
+				<v-footer dark height="auto">
+					<v-card class="flex" tile>
+						<v-card-title class="teal">
+							<strong class="suheadding">荣耀的背后刻着一道孤独</strong>
+							<v-spacer></v-spacer>
+							<v-btn icon @click.stop="dialog = !dialog">
+								<v-icon>email</v-icon>
+							</v-btn>
+							<v-dialog v-model="dialog" width=50%>
+								<v-card>
+									<v-card-title class="headline gray" primary-title>
+										要联系我？
+									</v-card-title>
+									<v-card-text style="text-align: center">
+										hhhhrainbow@163.com
+									</v-card-text>
+									
+									<v-card-actions>
+										<v-spacer></v-spacer>
+										<v-btn flat @click="dialog = false">
+											知道了
+										</v-btn>
+									</v-card-actions>
+								</v-card>
+							</v-dialog>
+						</v-card-title>
+
+						<v-card-actions class="grey draken-3 justify-center">
+							&copy;2019 - <strong>[ʃ]hinKai/進階</strong>
+						</v-card-actions>
+					</v-card>
+				</v-footer>
+			</template>
+		</div>
+		
+		</div>
+	</div>
+</body>
+<script>
+var vm = new Vue({
+	el: '#app',
+	data: {drawer: false, dialog: false, searchBox: false, warn: false, like: false,
+	caPics: [
+		{src: 'http://b2c.gaohangip.com//uploads/image/20180719/6366759285237224051597485.jpg'},
+		{src: 'https://b-ssl.duitang.com/uploads/item/201505/14/20150514113042_8Nyzd.thumb.700_0.jpeg'},
+		{src: 'http://dingyue.nosdn.127.net/Oxbz32bVfXQrIGT80mxLsXjfBkvZzJdT2eKOIkzPF6pP81536674190080compressflag.jpg'},
+		{src: 'https://pn.gexing.com/shaitu/2011/11/07/10564eb748c6d2a8f_600x.jpg'},
+		{src: 'https://b-ssl.duitang.com/uploads/item/201304/28/20130428150849_ckLKQ.thumb.1900_0.jpeg'},
+		{src: 'https://b-ssl.duitang.com/uploads/item/201311/05/20131105190143_PkkLa.thumb.1900_0.jpeg'}
+	]},
+	methods: {
+	},
+})
+</script>
+</html>
