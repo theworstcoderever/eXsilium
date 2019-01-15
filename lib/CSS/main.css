@@ -13,6 +13,24 @@ body {
     flex: 1;
 }
 
-.footer {
-    flex: 0;
+.contentwrapper {
+    width: 100%;
+}
+
+.fab {
+    padding-bottom: 20%;
+    margin-right: 20%;    
+}
+
+.carousel {
+    height: 250px;
+    margin-bottom: 15px;
+}
+
+.carousel.img {
+    width: 100%;
+}
+
+.v-hover {
+    margin-bottom: 10px;
 }
