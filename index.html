@@ -11,7 +11,7 @@
 	<link href="../eXsilium/lib/CSS/main.css" rel="stylesheet">
   	<link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-	<script src="https://unpkg.com/scrollreveal"></script>
+	<script src="../eXsilium/lib/JS/scrollreveal.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
 </head>
 <body>
@@ -64,6 +64,7 @@
 						</v-list>
 					</v-menu>
 					</v-toolbar>
+			</template>
 		</div>
 
 				<v-navigation-drawer v-model="drawer" absolute clipped temporary>
@@ -121,10 +122,13 @@
 						</v-card-actions>
 					</v-card>
 				</v-dialog>
+				<v-divider></v-divider>
 			</template>
 
 		<div class="content_wrapper">
-			<v-hover class="v-hover">
+			<v-timeline align-top dense>
+				<v-timeline-item color="pink" small>
+			<v-hover class="v-hover" class="slide-up">
 					<v-card slot-scope="{ hover }" :class="`elevation-${ hover ? 12 : 2}`" class="mx-auto">
 						<v-img src="http://img1.gamersky.com/image2019/01/20190115_ddw_459_5/gamersky_03origin_05_201911511499B9.jpg" height="300">
 						</v-img>
@@ -151,10 +155,12 @@
 							</v-slide-y-transition>
 					</v-card>
 			</v-hover>
-			
+			</v-timeline-item>
+
+			<v-timeline-item color="red" small>
 			<v-hover class="v-hover">
 					<v-card slot-scope="{ hover }" :class="`elevation-${ hover ? 12 : 2}`" class="mx-auto">
-						<v-img src="http://img.mp.sohu.com/q_70,c_zoom,w_640/upload/20170711/526c85d2686b4ca592ade07510f13b7b_th.jpg">
+						<v-img src="http://img1.gamersky.com/image2019/01/20190115_ddw_459_5/gamersky_03origin_05_201911511499B9.jpg" height="300">
 						</v-img>
 						<v-card-title primary-title>
 							<div>
@@ -172,7 +178,7 @@
 								屌哦！
 							</v-btn>
 							<v-spacer></v-spacer>
-							<v-btn icon @click="showCard2 = !showCard2"><v-icon>{{ showCard2 ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon></v-btn>
+							<v-btn icon @click="showCard2 = !showCard2"><v-icon>{{ showCard1 ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon></v-btn>
 						</v-card-actions>
 						<v-slide-y-transition>
 							<v-card-text v-show="showCard2">
@@ -187,6 +193,8 @@
 							</v-slide-y-transition>
 					</v-card>
 			</v-hover>
+			</v-timeline-item>
+			</v-timeline>
 		</div>
 		
 		<div class="fab">
@@ -255,7 +263,7 @@
 <script>
 var vm = new Vue({
 	el: '#app',
-	data: {drawer: false, dialog: false, searchBox: false, warn: false, showCard1: false, showCard2: false, showfab: false,
+	data: {drawer: false, dialog: false, searchBox: false, warn: false, showCard1: false, showCard2: false, showfab: false, ScrollReveal: ScrollReveal(),
 	caPics: [
 		{src: 'http://b2c.gaohangip.com//uploads/image/20180719/6366759285237224051597485.jpg'},
 		{src: 'http://dingyue.nosdn.127.net/sL3KSBM0g4A1p4l9m49qWutnmxCAfsrLfPyQUXXHxCFpn1534844361353.jpg'},
@@ -268,5 +276,11 @@ var vm = new Vue({
 	methods: {
 	},
 })
+var slideUp = {
+	distance: '150%',
+	origin: 'bottom',
+	opacity: null
+};
+ScrollReveal().reveal('.slide-up',slideUp);
 </script>
 </html>
