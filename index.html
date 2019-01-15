@@ -17,9 +17,9 @@
 <body>
 	<div id="app">
 		<div class="content">
-		<div name="nav"style="width: 100%">
+		<div class="nav"style="width: 100%">
 			<template>
-				<v-toolbar dense color="teal lightrn-3">
+				<v-toolbar dense color="light-blue lighten-2">
 					<v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
 					
 					<transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" :duration="300">
@@ -28,7 +28,7 @@
 
 					<v-spacer></v-spacer>
 
-					<transition enter-active-class="animated zoomIn" leave-active-class="animated zoomOut" :duration="750">
+					<transition enter-active-class="animated zoomInRight" leave-active-class="animated zoomOut" :duration="750">
 							<v-text-field v-show="searchBox" height="35" lable="Regular" 
 							placeholder="开始探索" clearable dark>
 							</v-text-field>
@@ -46,8 +46,8 @@
 							<v-icon>more_vert</v-icon>
 						</v-btn>
 						<v-list>
-							<v-list-tile @click.stop="warn = !warn">
-								<v-list-tile-title >功能准备中</v-list-tile-title>
+							<v-list-tile onclick="window.open('https://weibo.com/u/2855436972')" @click="">
+								<v-list-tile-title >访问我的新浪微博</v-list-tile-title>
 							</v-list-tile>
 							<v-list-tile @click.stop="warn = !warn">
 								<v-list-tile-title>功能准备中</v-list-tile-title>
@@ -63,11 +63,10 @@
 							</v-list-tile>
 						</v-list>
 					</v-menu>
-					
-				</v-toolbar>
+					</v-toolbar>
+		</div>
+
 				<v-navigation-drawer v-model="drawer" absolute clipped temporary>
-					<h1 style="text-align: center">eXsilium</h1>
-					<v-divider></v-divider>
 					<v-list class="pa-1">
 						<v-list-tile avatar>
 						  <v-list-tile-avatar>
@@ -75,17 +74,37 @@
 						  </v-list-tile-avatar>
 				
 						  <v-list-tile-content>
-							<v-list-tile-title>郑 ' S T E C H L A B</v-list-tile-title>
+							<v-list-tile-title>[ʃ]inKai/進階 ' S T E C H L A B</v-list-tile-title>
 						  </v-list-tile-content>
 						</v-list-tile>
 					  </v-list>
-					<h2 style="margin-top: 10px">内容准备中。。。</h2><br>
-					<h3>content not ready...</h3><br>			
+					  <v-divider></v-divider>
+					  
+					  <v-list>
+						  <v-list-group no-action>
+							<v-list-tile slot="activator">
+								<v-list-tile-content>
+									<v-list-tile-title>
+										2019年
+									</v-list-tile-title>
+								</v-list-tile-content>
+							</v-list-tile>
+							
+							<v-list-tile @click="">
+								<v-list-tile-content>
+									<v-list-tile-title>
+										一月
+									</v-list-tile-title>
+								</v-list-tile-content>
+							</v-list-tile>
+						  </v-list-group>
+					  </v-list>
+			
 				</v-navigation-drawer>
 			</template>
 
 			<template>
-				<v-carousel hide-controls interval="3000" style="z-index: -1">
+				<v-carousel name="carousel" class="carousel" height="250" hide-controls interval="3000" style="z-index: -1">
 					<v-carousel-item v-for="(caPic,i) in caPics" :key="i" :src="caPic.src">
 					</v-carousel-item>
 				</v-carousel>
@@ -103,17 +122,93 @@
 					</v-card>
 				</v-dialog>
 			</template>
-			
-			<h1 style="margin-top: 10px; text-align: center">内容准备中。。。</h1><br>
-			<h3 style="text-align:center">content not ready...</h3><br>
 
+		<div class="content_wrapper">
+			<v-hover class="v-hover">
+					<v-card slot-scope="{ hover }" :class="`elevation-${ hover ? 12 : 2}`" class="mx-auto">
+						<v-img src="http://img1.gamersky.com/image2019/01/20190115_ddw_459_5/gamersky_03origin_05_201911511499B9.jpg" height="300">
+						</v-img>
+						<v-card-title primary-title>
+							<div>
+							<div class="headline">
+							又到了做决定的时候了
+							</div>
+							<span class="gray-text">
+							就像三年前一样
+							</span>
+							</div>
+						</v-card-title>
+						<v-card-actions>
+							<v-btn color="red" flat>
+								<v-icon size="18">thumb_up</v-icon>
+								屌哦！
+							</v-btn>
+							<v-spacer></v-spacer>
+							<v-btn icon @click="showCard1 = !showCard1"><v-icon>{{ showCard1 ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon></v-btn>
+						</v-card-actions>
+						<v-slide-y-transition>
+							<v-card-text v-show="showCard1">不得不被时代推着向前走，真讨厌这种感觉</v-card-text>
+							</v-slide-y-transition>
+					</v-card>
+			</v-hover>
+			
+			<v-hover class="v-hover">
+					<v-card slot-scope="{ hover }" :class="`elevation-${ hover ? 12 : 2}`" class="mx-auto">
+						<v-img src="http://img1.gamersky.com/image2019/01/20190115_ddw_459_5/gamersky_03origin_05_201911511499B9.jpg" height="300">
+						</v-img>
+						<v-card-title primary-title>
+							<div>
+							<div class="headline">
+							2019年的小目标
+							</div>
+							<span class="gray-text">
+							
+							</span>
+							</div>
+						</v-card-title>
+						<v-card-actions>
+							<v-btn color="red" flat>
+								<v-icon size="18">thumb_up</v-icon>
+								屌哦！
+							</v-btn>
+							<v-spacer></v-spacer>
+							<v-btn icon @click="showCard2 = !showCard2"><v-icon>{{ showCard1 ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon></v-btn>
+						</v-card-actions>
+						<v-slide-y-transition>
+							<v-card-text v-show="showCard2">
+								<v-container fluid>
+									<v-layout row wrap>
+											<v-checkbox color="orange lighten-2" value="false" disabled label="开自己的思域下赛道" hide-details></v-checkbox>
+											<v-checkbox color="orange lighten-2" value="false" disabled label="读10本书" hide-details></v-checkbox>
+											<v-checkbox color="orange lighten-2" input-value="true" disabled label="集齐JAY的所有CD" hide-details></v-checkbox>
+									</v-layout>
+								</v-container>
+							</v-card-text>
+							</v-slide-y-transition>
+					</v-card>
+			</v-hover>
+		</div>
+		
+		<div class="fab">
+			<v-container fluid grid-list-md>
+					<v-fab-transition>
+						<v-layout row wrap>
+							<v-flex xs12 sm12 md6 offset-md3>
+							<v-btn v-show="showfab" color="blue" fab dark medium fixed bottom right>
+							<v-icon>add</v-icon>
+							</v-btn>
+							</v-flex>
+						</v-layout>
+					</v-fab-transition>
+			</v-container>
 		</div>
 
+		<!-- 以下是footer -->
 		<div class="footer">
 			<template>
-				<v-footer dark height="auto">
-					<v-card class="flex" tile>
-						<v-card-title class="teal">
+				<v-footer coclor="light-blue" dark height="auto">
+					<v-card class="flex" flat tile>
+						<v-card-title class="light-blue">
 							<strong class="suheadding">荣耀的背后刻着一道孤独</strong>
 							<v-spacer></v-spacer>
 							<v-btn icon @click.stop="dialog = !dialog">
@@ -160,7 +255,7 @@
 <script>
 var vm = new Vue({
 	el: '#app',
-	data: {drawer: false, dialog: false, searchBox: false, warn: false,
+	data: {drawer: false, dialog: false, searchBox: false, warn: false, showCard1: false, showCard2: false, showfab: false,
 	caPics: [
 		{src: 'http://b2c.gaohangip.com//uploads/image/20180719/6366759285237224051597485.jpg'},
 		{src: 'http://dingyue.nosdn.127.net/sL3KSBM0g4A1p4l9m49qWutnmxCAfsrLfPyQUXXHxCFpn1534844361353.jpg'},
@@ -168,7 +263,8 @@ var vm = new Vue({
 		{src: 'https://pn.gexing.com/shaitu/2011/11/07/10564eb748c6d2a8f_600x.jpg'},
 		{src: 'http://dingyue.nosdn.127.net/jjElLunYd8SBrNkLkgjlWkUHLaTRBFASPNVkn40MEK26G1528425708646.jpg'},
 		{src: 'http://qn.18touch.com/uploads/20180928/1538113729249094.jpg'}
-	]},
+	],
+	},
 	methods: {
 	},
 })
