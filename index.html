@@ -11,7 +11,6 @@
 	<link href="../eXsilium/lib/CSS/main.css" rel="stylesheet">
   	<link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-	<script src="../eXsilium/lib/JS/scrollreveal.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
 </head>
 <body>
@@ -128,7 +127,7 @@
 		<div class="content_wrapper">
 			<v-timeline align-top dense>
 				<v-timeline-item color="pink" small>
-			<v-hover class="v-hover" class="slide-up">
+			<v-hover class="v-hover">
 					<v-card slot-scope="{ hover }" :class="`elevation-${ hover ? 12 : 2}`" class="mx-auto">
 						<v-img src="http://img1.gamersky.com/image2019/01/20190115_ddw_459_5/gamersky_03origin_05_201911511499B9.jpg" height="300">
 						</v-img>
@@ -160,7 +159,7 @@
 			<v-timeline-item color="red" small>
 			<v-hover class="v-hover">
 					<v-card slot-scope="{ hover }" :class="`elevation-${ hover ? 12 : 2}`" class="mx-auto">
-						<v-img src="http://img.mp.itc.cn/upload/20170428/34bd8c7d85b748b0b23471a236471482_th.jpg">
+						<v-img src="http://img.mp.itc.cn/upload/20170428/34bd8c7d85b748b0b23471a236471482_th.jpg" height="300">
 						</v-img>
 						<v-card-title primary-title>
 							<div>
@@ -263,7 +262,7 @@
 <script>
 var vm = new Vue({
 	el: '#app',
-	data: {drawer: false, dialog: false, searchBox: false, warn: false, showCard1: false, showCard2: false, showfab: false, ScrollReveal: ScrollReveal(),
+	data: {drawer: false, dialog: false, searchBox: false, warn: false, showCard1: false, showCard2: false, showfab: false,
 	caPics: [
 		{src: 'http://b2c.gaohangip.com//uploads/image/20180719/6366759285237224051597485.jpg'},
 		{src: 'http://dingyue.nosdn.127.net/sL3KSBM0g4A1p4l9m49qWutnmxCAfsrLfPyQUXXHxCFpn1534844361353.jpg'},
@@ -276,11 +275,5 @@ var vm = new Vue({
 	methods: {
 	},
 })
-var slideUp = {
-	distance: '150%',
-	origin: 'bottom',
-	opacity: null
-};
-ScrollReveal().reveal('.slide-up',slideUp);
 </script>
 </html>
