@@ -1,382 +1,489 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title>eXsilium!</title>
+	<title>eXsilium</title>
 	<link rel="icon" href="../eXsilium/lib/Src/favicon.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
 	<link href="../eXsilium/lib/CSS/animate.css" rel="stylesheet">
 	<link href="../eXsilium/lib/CSS/main.css" rel="stylesheet">
-  	<link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue-aplayer"></script>
 </head>
+
 <body>
 	<div id="app">
+		<v-app id="exiledMe">
+			<div class="content">
+				<div class="nav" style="width: 100%">
+					<v-navigation-drawer app v-model="drawer" fixed clipped>
+						<v-list class="pa-1">
+							<v-list-tile avatar>
+								<v-list-tile-avatar>
+									<img src="http://image11.m1905.cn/uploadfile/s2010/0127/20100127083234166.jpg">
+								</v-list-tile-avatar>
 
-		<div class="content">
-		<div class="nav"style="width: 100%">
-			<template>
-				<v-toolbar dense color="light-blue lighten-2">
-					<v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-					
-					<transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" :duration="300">
-							<v-toolbar-title v-show="!searchBox">eXsilium</v-toolbar-title>
-					</transition>
-
-					<v-spacer></v-spacer>
-
-					<transition enter-active-class="animated zoomInRight" leave-active-class="animated zoomOut" :duration="750">
-							<v-text-field v-show="searchBox" height="35" lable="Regular" 
-							placeholder="开始探索" clearable dark>
-							</v-text-field>
-					</transition>
-
-					<v-btn icon @click.stop="searchBox = !searchBox">
-						<v-icon>search</v-icon>
-					</v-btn>
-					<v-btn icon @click.stop="warn = !warn">
-						<v-icon>favorite</v-icon>
-					</v-btn>
-					
-					<v-menu transition="slide-y-transition">
-						<v-btn icon slot="activator">
-							<v-icon>more_vert</v-icon>
-						</v-btn>
-						<v-list>
-							<v-list-tile onclick="window.open('https://weibo.com/u/2855436972')" @click="">
-								<v-list-tile-title >访问我的新浪微博</v-list-tile-title>
-							</v-list-tile>
-							<v-list-tile @click.stop="warn = !warn">
-								<v-list-tile-title>功能准备中</v-list-tile-title>
-							</v-list-tile>
-							<v-list-tile @click.stop="warn = !warn">
-								<v-list-tile-title>功能准备中</v-list-tile-title>
-							</v-list-tile>
-							<v-list-tile @click.stop="warn = !warn">
-								<v-list-tile-title>功能准备中</v-list-tile-title>
-							</v-list-tile>
-							<v-list-tile @click.stop="warn = !warn">
-								<v-list-tile-title>功能准备中</v-list-tile-title>
+								<v-list-tile-content>
+									<v-list-tile-title>[ʃ]inKai/進階 ' S T E C H L A B</v-list-tile-title>
+								</v-list-tile-content>
 							</v-list-tile>
 						</v-list>
-					</v-menu>
+						<v-divider></v-divider>
+
+						<v-list>
+							<v-list-group no-action>
+								<v-list-tile slot="activator">
+									<v-list-tile-content>
+										<v-list-tile-title>
+											2019年
+										</v-list-tile-title>
+									</v-list-tile-content>
+								</v-list-tile>
+
+								<v-list-tile @click="">
+									<v-list-tile-content>
+										<v-list-tile-title>
+											一月
+										</v-list-tile-title>
+									</v-list-tile-content>
+								</v-list-tile>
+							</v-list-group>
+						</v-list>
+					</v-navigation-drawer>
+
+					<v-toolbar dense color="light-blue lighten-2" clipped-left app>
+						<v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+
+						<transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" :duration="300">
+							<v-toolbar-title v-show="!searchBox">eXsilium</v-toolbar-title>
+						</transition>
+
+						<v-spacer></v-spacer>
+
+						<transition enter-active-class="animated zoomInRight" leave-active-class="animated zoomOut" :duration="750">
+							<v-text-field v-show="searchBox" height="35" lable="Regular" placeholder="开始探索" clearable dark>
+							</v-text-field>
+						</transition>
+
+						<v-btn icon @click.stop="searchBox = !searchBox">
+							<v-icon>search</v-icon>
+						</v-btn>
+						<v-btn icon @click.stop="warn = !warn">
+							<v-icon>favorite</v-icon>
+						</v-btn>
+
+						<v-menu transition="slide-y-transition">
+							<v-btn icon slot="activator">
+								<v-icon>more_vert</v-icon>
+							</v-btn>
+							<v-list>
+								<v-list-tile onclick="window.open('https://weibo.com/u/2855436972')" @click="">
+									<v-list-tile-title>访问我的新浪微博</v-list-tile-title>
+								</v-list-tile>
+								<v-list-tile @click.stop="warn = !warn">
+									<v-list-tile-title>功能准备中</v-list-tile-title>
+								</v-list-tile>
+								<v-list-tile @click.stop="warn = !warn">
+									<v-list-tile-title>功能准备中</v-list-tile-title>
+								</v-list-tile>
+								<v-list-tile @click.stop="warn = !warn">
+									<v-list-tile-title>功能准备中</v-list-tile-title>
+								</v-list-tile>
+								<v-list-tile @click.stop="warn = !warn">
+									<v-list-tile-title>功能准备中</v-list-tile-title>
+								</v-list-tile>
+							</v-list>
+						</v-menu>
 					</v-toolbar>
-			</template>
-		</div>
+				</div>
 
-				<v-navigation-drawer v-model="drawer" absolute clipped temporary>
-					<v-list class="pa-1">
-						<v-list-tile avatar>
-						  <v-list-tile-avatar>
-							<img src="http://image11.m1905.cn/uploadfile/s2010/0127/20100127083234166.jpg">
-						  </v-list-tile-avatar>
-				
-						  <v-list-tile-content>
-							<v-list-tile-title>[ʃ]inKai/進階 ' S T E C H L A B</v-list-tile-title>
-						  </v-list-tile-content>
-						</v-list-tile>
-					  </v-list>
-					  <v-divider></v-divider>
-					  
-					  <v-list>
-						  <v-list-group no-action>
-							<v-list-tile slot="activator">
-								<v-list-tile-content>
-									<v-list-tile-title>
-										2019年
-									</v-list-tile-title>
-								</v-list-tile-content>
-							</v-list-tile>
-							
-							<v-list-tile @click="">
-								<v-list-tile-content>
-									<v-list-tile-title>
-										一月
-									</v-list-tile-title>
-								</v-list-tile-content>
-							</v-list-tile>
-						  </v-list-group>
-					  </v-list>
-			
-				</v-navigation-drawer>
-			</template>
+				<v-content>
+					<v-carousel name="carousel" class="carousel" height="250" hide-controls interval="3000">
+						<v-carousel-item v-for="(caPic,i) in caPics" :key="i" :src="caPic.src">
+						</v-carousel-item>
+					</v-carousel>
 
-			<template>
-				<v-carousel name="carousel" class="carousel" height="250" hide-controls interval="3000" style="z-index: -1">
-					<v-carousel-item v-for="(caPic,i) in caPics" :key="i" :src="caPic.src">
-					</v-carousel-item>
-				</v-carousel>
-
-				<v-dialog v-model="warn" width=50%>
-					<v-card>
-						<v-card-title class="healine gray" primary-title>
-							提示
-						</v-card-title>
-						<v-card-text>功能开发中</v-card-text>
-						<v-card-actions>
-							<v-spacer></v-spacer>
-							<v-btn flat @click="warn = false">知道了</v-btn>
-						</v-card-actions>
-					</v-card>
-				</v-dialog>
-				<v-divider></v-divider>
-			</template>
-
-		<div class="content_wrapper">
-
-					<v-hover class="v-hover">
-						<v-card slot-scope="{ hover }" :class="`elevation-${ hover ? 12 : 2}`" class="mx-auto">
-							<v-carousel name="gameCarousel" height="300" hide-controls hide-delimiters interval="2000">
-								<v-carousel-item v-for="(gaPic,i) in gaPics" :key="i" :src="gaPic.src"></v-carousel-item>
-							</v-carousel>
-							<v-card-title primary-title>
-							<div>
-							<div class="headline">
-							2019年必玩的游戏
-							</div>
-							<span class="gray-text">
-							17,Jan,2019
-							</span>
-							</div>
+					<v-dialog v-model="warn" width=50%>
+						<v-card>
+							<v-card-title class="healine gray" primary-title>
+								提示
 							</v-card-title>
+							<v-card-text>功能开发中</v-card-text>
 							<v-card-actions>
-								<v-btn color="red" flat>
-									<v-icon size="18">thumb_up</v-icon>
-									屌哦！
-								</v-btn>
 								<v-spacer></v-spacer>
-								<v-btn icon @click="showCard4 = !showCard4"><v-icon>{{ showCard4 ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon></v-btn>
+								<v-btn flat @click="warn = false">知道了</v-btn>
 							</v-card-actions>
+						</v-card>
+					</v-dialog>
+					<v-divider></v-divider>
+
+					<div id="content-wrapper" class="content_wrapper">
+						<v-hover class="v-hover">
+							<v-card slot-scope="{ hover }" :class="`elevation-${ hover ? 12 : 2}`" class="mx-auto">
+								<v-carousel name="gameCarousel" height="300" hide-controls hide-delimiters interval="2000">
+									<v-carousel-item v-for="(gaPic,i) in gaPics" :key="i" :src="gaPic.src"></v-carousel-item>
+								</v-carousel>
+								<v-card-title primary-title>
+									<div>
+										<div class="headline">
+											2019年必玩的游戏
+										</div>
+										<span class="gray-text">
+											17,Jan,2019
+										</span>
+									</div>
+								</v-card-title>
+								<v-card-actions>
+									<v-btn icon color="red" flat>
+										<v-icon size="18">thumb_up</v-icon>
+										屌哦！
+									</v-btn>
+									<v-spacer></v-spacer>
+									<v-btn icon @click="showCard4 = !showCard4">
+										<v-icon>{{ showCard4 ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon>
+									</v-btn>
+								</v-card-actions>
 								<!-- TODO: 来成都值班期间完成的事 -->
 								<!-- TODO: 心之怪盗团https://pic4.zhimg.com/80/v2-edda86e88859c6405d9af00ec3723fef_hd.png -->
-							<v-slide-y-transition>
-							<v-card-text v-show="showCard4">
-								<!-- <aplayer autoplay :music="{title: 'secret base~君がくれたもの',
+								<v-slide-y-transition>
+									<v-card-text v-show="showCard4">
+										<!-- <aplayer autoplay :music="{title: 'secret base~君がくれたもの',
 								artist: '茅野爱衣', 
 								src: 'https://moeplayer.b0.upaiyun.com/aplayer/secretbase.mp3', 
 								pic: 'https://gss3.bdstatic.com/7Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike272%2C5%2C5%2C272%2C90/sign=04be071af0dcd100d991f07313e22c75/5366d0160924ab18a8524c203dfae6cd7b890b64.jpg'}"/> -->
-								<div name="card4-video" class="center-align">
-								<iframe src="https://player.bilibili.com/player.html?aid=33911979&cid=59389050&page=1" scrolling="no" frameborder="0" framespacing="0" allowfullscreen="true" width="100%" height="400"></iframe>
-								</div><br>
-								老夫最希望在2019年玩到的游戏如下：<br>
-								<v-list two-line v-for="(gaPic,i) in gaPics" :key="i">
-									<template>
-										<v-list-tile avatar @click="">
-											<v-list-tile-avatar img :src="gaPic.src"></v-list-tile-avatar>
-											<v-list-tile-content>
-												<v-list-tile-title v-html="gaPic.title"></v-list-tile-title>
-												<v-list-tile-sub-title v-html="gaPic.subtitle"></v-list-tile-sub-title>
-											</v-list-tile-content>
-										</v-list-tile>
-									</template>
-								</v-list>
-							</v-card-text>
-							</v-slide-y-transition>
-						</v-card>
-					</v-hover>
-
-				<v-hover class="v-hover">
-					<v-card slot-scope="{ hover }" :class="`elevation-${ hover ? 12 : 2}`" class="mx-auto">
-						<v-img src="http://img1.gamersky.com/image2019/01/20190115_ddw_459_5/gamersky_03origin_05_201911511499B9.jpg" height="300">
-						</v-img>
-					<v-card-title primary-title>
-						<div>
-						<div class="headline">
-						又到了做决定的时候了
-						</div>
-						<span class="gray-text">
-						15,Jan,2019
-						</span>
-						</div>
-					</v-card-title>
-					<v-card-actions>
-						<v-btn color="red" flat>
-							<v-icon size="18">thumb_up</v-icon>
-							屌哦！
-						</v-btn>
-						<v-spacer></v-spacer>
-						<v-btn icon @click="showCard1 = !showCard1"><v-icon>{{ showCard1 ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon></v-btn>
-					</v-card-actions>
-					<v-slide-y-transition>
-						<v-card-text v-show="showCard1">
-							<div class="center-align">
-							<iframe frameborder="0" marginwidth="0" marginheight="0" width="100%" src="https://music.163.com/outchain/player?type=2&id=22660952&auto=0&height=130"></iframe>
-							</div><br>
-							面临的选择不亚于跳槽，这种不得不被时代推着向前走的感觉真讨厌。<br>
-							原本以为自己内心强大，结果是每天都活在对明天不确定的恐惧之中</v-card-text>
-						</v-slide-y-transition>
-					</v-card>
-				</v-hover>
-
-			<v-hover class="v-hover">
-					<v-card slot-scope="{ hover }" :class="`elevation-${ hover ? 12 : 2}`" class="mx-auto">
-						<v-img src="http://img.mp.itc.cn/upload/20170428/34bd8c7d85b748b0b23471a236471482_th.jpg" height="350">
-						</v-img>
-						<v-card-title primary-title>
-							<div>
-							<div class="headline">
-							2019年的小目标
-							</div>
-							<span class="gray-text">
-							15,Jan,2019
-							</span>
-							</div>
-						</v-card-title>
-						<v-card-actions>
-							<v-btn color="red" flat>
-								<v-icon size="18">thumb_up</v-icon>
-								屌哦！
-							</v-btn>
-							<v-spacer></v-spacer>
-							<v-btn icon @click="showCard2 = !showCard2"><v-icon>{{ showCard1 ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon></v-btn>
-						</v-card-actions>
-						<v-slide-y-transition>
-							<v-card-text v-show="showCard2">
-								<v-container fluid>
-									<v-layout row wrap v-for="(goal,i) in goals" :key="i">
-											<v-checkbox color="orange lighten-2" :input-value="goal.isCompleted" disabled :label="goal.item" hide-details></v-checkbox>
-									</v-layout>
-								</v-container>
-							</v-card-text>
-							</v-slide-y-transition>
-					</v-card>
-			</v-hover>
-
-				<v-hover class="v-hover">
-					<v-card slot-scope="{ hover }" :class="`elevation-${ hover ? 12 : 2}`" class="mx-auto">
-						<v-img src="http://img5.mtime.cn/mg/2017/02/05/005533.48535453.jpg" height="350">
-						</v-img>
-					<v-card-title primary-title>
-						<div>
-						<div class="headline">
-						来到成都抗冰值班
-						</div>
-						<span class="gray-text">
-						6,Jan,2019
-						</span>
-						</div>
-					</v-card-title>
-					<v-card-actions>
-						<v-btn color="red" flat>
-							<v-icon size="18">thumb_up</v-icon>
-							屌哦！
-						</v-btn>
-						<v-spacer></v-spacer>
-						<v-btn icon @click="showCard3 = !showCard3"><v-icon>{{ showCard3 ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon></v-btn>
-					</v-card-actions>
-					<v-slide-y-transition>
-						<v-card-text v-show="showCard3">虽然一天上班时间超过12小时，但是上一休一的感觉真不赖。2020年有机会必来，最好能够是在元旦期间值班，那就赚大发咯！</v-card-text>
-						</v-slide-y-transition>
-					</v-card>
-				</v-hover>
-	
-		</div>
-		
-		<div class="fab">
-			<v-container fluid grid-list-md>
-					<v-fab-transition>
-						<v-layout row wrap>
-							<v-flex xs12 sm12 md6 offset-md3>
-							<v-btn v-show="showfab" color="blue" fab dark medium fixed bottom right>
-							<v-icon>add</v-icon>
-							</v-btn>
-							</v-flex>
-						</v-layout>
-					</v-fab-transition>
-			</v-container>
-		</div>
-
-		<!-- 以下是footer -->
-		<div class="footer">
-			<template>
-				<v-footer coclor="light-blue" dark height="auto">
-					<v-card class="flex" flat tile>
-						<v-card-title class="light-blue">
-							<strong class="suheadding">荣耀的背后刻着一道孤独</strong>
-							<v-spacer></v-spacer>
-							<v-btn icon @click.stop="dialog = !dialog">
-								<v-icon>email</v-icon>
-							</v-btn>
-							<v-dialog v-model="dialog" width=50%>
-								<v-card>
-									<v-card-title class="headline gray" primary-title>
-										要联系我？
-									</v-card-title>
-									<v-card-text style="text-align: center">
-										<span>
-											<v-icon size="18">email</v-icon>
-											hhhhrainbow@163.com
-										</span><br>
-										<span>
-											<v-icon size="18">person_add</v-icon>
-											源工的笑容由我们来守护
-										</span>
-										
+										<div name="card4-video" class="center-align">
+											<iframe src="https://player.bilibili.com/player.html?aid=33911979&cid=59389050&page=1" scrolling="no"
+											 frameborder="0" framespacing="0" allowfullscreen="true" width="100%" height="400"></iframe>
+										</div><br>
+										老夫最希望在2019年玩到的游戏如下：<br>
+										<v-list two-line v-for="(gaPic,i) in gaPics" :key="i">
+											<v-list-tile avatar @click="">
+												<v-list-tile-avatar img :src="gaPic.src"></v-list-tile-avatar>
+												<v-list-tile-content>
+													<v-list-tile-title v-html="gaPic.title"></v-list-tile-title>
+													<v-list-tile-sub-title v-html="gaPic.subtitle"></v-list-tile-sub-title>
+												</v-list-tile-content>
+											</v-list-tile>
+										</v-list>
 									</v-card-text>
-									
-									<v-card-actions>
-										<v-spacer></v-spacer>
-										<v-btn flat @click="dialog = false">
-											知道了
-										</v-btn>
-									</v-card-actions>
-								</v-card>
-							</v-dialog>
-						</v-card-title>
+								</v-slide-y-transition>
+							</v-card>
+						</v-hover>
 
-						<v-card-actions class="grey draken-3 justify-center">
-							&copy;2019 - <strong>[ʃ]inKai/進階</strong>
-						</v-card-actions>
-					</v-card>
-				</v-footer>
-			</template>
-		</div>
-		
-		</div>
+						<v-hover class="v-hover">
+							<v-card slot-scope="{ hover }" :class="`elevation-${ hover ? 12 : 2}`" class="mx-auto">
+								<v-parallax src="http://img1.gamersky.com/image2019/01/20190115_ddw_459_5/gamersky_03origin_05_201911511499B9.jpg"
+								 height="300">
+								</v-parallax>
+								<v-card-title primary-title>
+									<div>
+										<div class="headline">
+											又到了做决定的时候了
+										</div>
+										<span class="gray-text">
+											15,Jan,2019
+										</span>
+									</div>
+								</v-card-title>
+								<v-card-actions>
+									<v-btn icon color="red" flat>
+										<v-icon size="18">thumb_up</v-icon>
+										屌哦！
+									</v-btn>
+									<v-spacer></v-spacer>
+									<v-btn icon @click="showCard1 = !showCard1">
+										<v-icon>{{ showCard1 ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon>
+									</v-btn>
+								</v-card-actions>
+								<v-slide-y-transition>
+									<v-card-text v-show="showCard1">
+										<div class="center-align">
+											<iframe frameborder="0" marginwidth="0" marginheight="0" width="100%" src="https://music.163.com/outchain/player?type=2&id=22660952&auto=0&height=130"></iframe>
+										</div><br>
+										面临的选择不亚于跳槽，这种不得不被时代推着向前走的感觉真讨厌。<br>
+										原本以为自己内心强大，结果是每天都活在对明天不确定的恐惧之中
+									</v-card-text>
+								</v-slide-y-transition>
+							</v-card>
+						</v-hover>
+
+						<v-hover class="v-hover">
+							<v-card slot-scope="{ hover }" :class="`elevation-${ hover ? 12 : 2}`" class="mx-auto">
+								<v-parallax src="http://img.mp.itc.cn/upload/20170428/34bd8c7d85b748b0b23471a236471482_th.jpg" height="350">
+								</v-parallax>
+								<v-card-title primary-title>
+									<div>
+										<div class="headline">
+											2019年的小目标
+										</div>
+										<span class="gray-text">
+											15,Jan,2019
+										</span>
+									</div>
+								</v-card-title>
+								<v-card-actions>
+									<v-btn icon color="red" flat>
+										<v-icon size="18">thumb_up</v-icon>
+										屌哦！
+									</v-btn>
+									<v-spacer></v-spacer>
+									<v-btn icon @click="showCard2 = !showCard2">
+										<v-icon>{{ showCard2 ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon>
+									</v-btn>
+								</v-card-actions>
+								<v-slide-y-transition>
+									<v-card-text v-show="showCard2">
+										<v-container fluid>
+											<v-layout row wrap v-for="(goal,i) in goals" :key="i">
+												<v-checkbox color="orange lighten-2" :input-value="goal.isCompleted" disabled :label="goal.item"
+												 hide-details></v-checkbox>
+											</v-layout>
+										</v-container>
+									</v-card-text>
+								</v-slide-y-transition>
+							</v-card>
+						</v-hover>
+
+						<v-hover class="v-hover">
+							<v-card slot-scope="{ hover }" :class="`elevation-${ hover ? 12 : 2}`" class="mx-auto">
+								<v-parallax src="http://img5.mtime.cn/mg/2017/02/05/005533.48535453.jpg" height="350">
+								</v-parallax>
+								<v-card-title primary-title>
+									<div>
+										<div class="headline">
+											来到成都抗冰值班
+										</div>
+										<span class="gray-text">
+											6,Jan,2019
+										</span>
+									</div>
+								</v-card-title>
+								<v-card-actions>
+									<v-btn icon color="red" flat>
+										<v-icon size="18">thumb_up</v-icon>
+										屌哦！
+									</v-btn>
+									<v-spacer></v-spacer>
+									<v-btn icon @click="showCard3 = !showCard3">
+										<v-icon>{{ showCard3 ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon>
+									</v-btn>
+								</v-card-actions>
+								<v-slide-y-transition>
+									<v-card-text v-show="showCard3">虽然一天上班时间超过12小时，但是上一休一的感觉真不赖。2020年有机会必来，最好能够是在元旦期间值班，那就赚大发咯！</v-card-text>
+								</v-slide-y-transition>
+							</v-card>
+						</v-hover>
+
+					</div>
+
+					<!-- 以下是FAB -->
+					<div class="fab">
+						<v-speed-dial v-model="showspeeddial" top left direction="left" open-on-hover transition="slide-x-reverse-transition">
+							<v-btn slot="activator" v-show="showfab" color="blue lighten-1" fab dark large>
+								<v-icon>add</v-icon>
+								<v-icon>close</v-icon>
+							</v-btn>
+							<v-btn fab dark small color="red" @click="backToTop">
+								<v-icon>arrow_upward</v-icon>
+							</v-btn>
+							<v-btn fab dark small color="yellow">
+								<v-icon>delete</v-icon>
+							</v-btn>
+							<v-btn fab dark small color="orange" @click.stop="searchBox = !searchBox">
+								<v-icon>search</v-icon>
+							</v-btn>
+						</v-speed-dial>
+					</div>
+
+					<!-- 以下是footer -->
+					<div class="footer">
+						<v-footer coclor="light-blue" dark height="auto">
+							<v-card class="flex" flat tile>
+								<v-card-title class="light-blue">
+									<strong class="suheadding">荣耀的背后刻着一道孤独</strong>
+									<v-spacer></v-spacer>
+									<v-btn icon @click.stop="dialog = !dialog">
+										<v-icon>email</v-icon>
+									</v-btn>
+									<v-dialog v-model="dialog" width=50%>
+										<v-card>
+											<v-card-title class="headline gray" primary-title>
+												要联系我？
+											</v-card-title>
+											<v-card-text style="text-align: center">
+												<span>
+													<v-icon size="18">email</v-icon>
+													hhhhrainbow@163.com
+												</span><br>
+												<span>
+													<v-icon size="18">person_add</v-icon>
+													源工的笑容由我们来守护
+												</span>
+
+											</v-card-text>
+
+											<v-card-actions>
+												<v-spacer></v-spacer>
+												<v-btn flat @click="dialog = false">
+													知道了
+												</v-btn>
+											</v-card-actions>
+										</v-card>
+									</v-dialog>
+								</v-card-title>
+
+								<v-card-actions class="grey draken-3 justify-center">
+									&copy;2019 - <strong>[ʃ]inKai/進階</strong>
+								</v-card-actions>
+							</v-card>
+						</v-footer>
+					</div>
+				</v-content>
+
+			</div>
 	</div>
+	</v-app>
 </body>
 <script>
-// 创建aplayer组件
-Vue.component('aplayer', VueAPlayer)
-var vm = new Vue({
-	el: '#app',
-	data: {drawer: false, dialog: false, searchBox: false, warn: false, showCard1: false, showCard2: false, showfab: false, showCard3: false,
-	showCard4: false,
-	caPics: [
-		{src: 'http://b2c.gaohangip.com//uploads/image/20180719/6366759285237224051597485.jpg'},
-		{src: 'http://dingyue.nosdn.127.net/sL3KSBM0g4A1p4l9m49qWutnmxCAfsrLfPyQUXXHxCFpn1534844361353.jpg'},
-		{src: 'http://dingyue.nosdn.127.net/Oxbz32bVfXQrIGT80mxLsXjfBkvZzJdT2eKOIkzPF6pP81536674190080compressflag.jpg'},
-		{src: 'https://pn.gexing.com/shaitu/2011/11/07/10564eb748c6d2a8f_600x.jpg'},
-		{src: 'http://dingyue.nosdn.127.net/jjElLunYd8SBrNkLkgjlWkUHLaTRBFASPNVkn40MEK26G1528425708646.jpg'},
-		{src: 'http://qn.18touch.com/uploads/20180928/1538113729249094.jpg'}
-	],
+	// 创建aplayer组件
+	//Vue.component('aplayer', VueAPlayer)
+	var vm = new Vue({
+		el: '#app',
+		data: {
+			drawer: false,
+			dialog: false,
+			searchBox: false,
+			warn: false,
+			showCard1: false,
+			showCard2: false,
+			showfab: false,
+			showspeeddial: false,
+			showCard3: false,
+			showCard4: false,
+			caPics: [{
+					src: 'http://b2c.gaohangip.com//uploads/image/20180719/6366759285237224051597485.jpg'
+				},
+				{
+					src: 'http://dingyue.nosdn.127.net/sL3KSBM0g4A1p4l9m49qWutnmxCAfsrLfPyQUXXHxCFpn1534844361353.jpg'
+				},
+				{
+					src: 'http://dingyue.nosdn.127.net/Oxbz32bVfXQrIGT80mxLsXjfBkvZzJdT2eKOIkzPF6pP81536674190080compressflag.jpg'
+				},
+				{
+					src: 'https://pn.gexing.com/shaitu/2011/11/07/10564eb748c6d2a8f_600x.jpg'
+				},
+				{
+					src: 'http://dingyue.nosdn.127.net/jjElLunYd8SBrNkLkgjlWkUHLaTRBFASPNVkn40MEK26G1528425708646.jpg'
+				},
+				{
+					src: 'http://qn.18touch.com/uploads/20180928/1538113729249094.jpg'
+				}
+			],
 
-	gaPics: [
-		{title: "鬼泣5", subtitle: "预定发售日期：2019.3.8", src: "http://i0.hdslb.com/bfs/article/115df732c59d052cc84ee4cb487e36e685807e15.jpg"},
-		{title: "死亡搁浅", subtitle: "预定发售日期：2019", src: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1547717209931&di=f6e988893de02268f587cf46c56eaa61&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2F80bbd132089cdc8338121a174261e846114764ae.jpg"},
-		{title: "只狼：影逝二度", subtitle: "预定发售日期：2019.3.22", src: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1547717241401&di=1f953854036ae912e4af1dbff53508ac&imgtype=0&src=http%3A%2F%2Fi2.hdslb.com%2Fbfs%2Farchive%2F2928a551973c3a059bbd20ff406c9258516f8f83.jpg"},
-		{title: "对马之魂", subtitle: "预定发售日期：2019", src: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1548311881&di=e814657b5c43c7a305c997eeb0c10888&imgtype=jpg&er=1&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farchive%2F17ec1ce05b04b527ccaa30eed4fe9466a1e584f1.jpg"},
-		{title: "皇牌空战7 未知领域", subtitle: "预定发售日期：2019.1.17", src: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1547717415472&di=96db17820deb330a2eb49614cf14f48e&imgtype=jpg&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D1250675386%2C3237996536%26fm%3D214%26gp%3D0.jpg"},
-		{title: "最后生还者2", subtitle: "预定发售日期：2019", src: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1547719371870&di=1c3f4b515ffdec211e36400b7ec7a406&imgtype=0&src=http%3A%2F%2Fi.17173cdn.com%2F2fhnvk%2FYWxqaGBf%2Fcms3%2FajbKxCbmpgCvulA.jpg"}
-	],
+			gaPics: [{
+					title: "鬼泣5",
+					subtitle: "预定发售日期：2019.3.8",
+					src: "http://i0.hdslb.com/bfs/article/115df732c59d052cc84ee4cb487e36e685807e15.jpg"
+				},
+				{
+					title: "死亡搁浅",
+					subtitle: "预定发售日期：2019",
+					src: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1547717209931&di=f6e988893de02268f587cf46c56eaa61&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2F80bbd132089cdc8338121a174261e846114764ae.jpg"
+				},
+				{
+					title: "只狼：影逝二度",
+					subtitle: "预定发售日期：2019.3.22",
+					src: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1547717241401&di=1f953854036ae912e4af1dbff53508ac&imgtype=0&src=http%3A%2F%2Fi2.hdslb.com%2Fbfs%2Farchive%2F2928a551973c3a059bbd20ff406c9258516f8f83.jpg"
+				},
+				{
+					title: "对马之魂",
+					subtitle: "预定发售日期：2019",
+					src: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1548311881&di=e814657b5c43c7a305c997eeb0c10888&imgtype=jpg&er=1&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farchive%2F17ec1ce05b04b527ccaa30eed4fe9466a1e584f1.jpg"
+				},
+				{
+					title: "皇牌空战7 未知领域",
+					subtitle: "预定发售日期：2019.1.17",
+					src: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1547717415472&di=96db17820deb330a2eb49614cf14f48e&imgtype=jpg&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D1250675386%2C3237996536%26fm%3D214%26gp%3D0.jpg"
+				},
+				{
+					title: "最后生还者2",
+					subtitle: "预定发售日期：2019",
+					src: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1547719371870&di=1c3f4b515ffdec211e36400b7ec7a406&imgtype=0&src=http%3A%2F%2Fi.17173cdn.com%2F2fhnvk%2FYWxqaGBf%2Fcms3%2FajbKxCbmpgCvulA.jpg"
+				}
+			],
 
-	goals: [
-		{item: "带自己的思域下赛道", isCompleted: false},
-		{item: "集齐JAY的所有CD", isCompleted: false},
-		{item: "集齐JJ的所有CD", isCompleted: false},
-		{item: "集齐vae的所有CD", isCompleted: false},
-		{item: "读10本书", isCompleted: false}
-	],
+			goals: [{
+					item: "下赛道",
+					isCompleted: false
+				},
+				{
+					item: "集齐周杰伦的所有CD",
+					isCompleted: false
+				},
+				{
+					item: "集齐林俊杰的所有CD",
+					isCompleted: false
+				},
+				{
+					item: "集齐许嵩的所有CD",
+					isCompleted: false
+				},
+				{
+					item: "读10本书",
+					isCompleted: false
+				},
+				{
+					item: "集齐林肯公园的CD",
+					isCompleted: false
+				},
+				{
+					item: "集齐赵雷的CD",
+					isCompleted: false
+				},{
+					item: "支出不超过计划",
+					isCompleted: false
+				},
+			],
 
-	},
-	methods: {
-		
-	},
-})
+		},
+		methods: {
+			handleScroll: function () {
+				var scrolltop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+				// console.log(scrolltop);
+				if (scrolltop > 400) {
+					this.showfab = true;
+				} else {
+					this.showfab = false;
+				}
+			},
+			backToTop: function () {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+				// var currentScrollTop = document.documentElement.scrollTop;			
+			}
+		},
+		// 	backToTopSmooth: function(){
+		// 		while(currentScrollTop > 0){
+		// 			currentScrollTop = currentScrollTop - 10;
+		// 			document.documentElement.scrollTop = currentScrollTop;
+		// 			document.body.scrollTop = currentScrollTop;
+		// 			setInterval(this.backToTopSmooth(),100)
+		// 	}
+		// },
+
+		mounted() {
+			window.addEventListener('scroll', this.handleScroll)
+		},
+		destroyed() {
+			window.removeEventListener('scroll', this.handleScroll)
+		},
+	})
 </script>
+
 </html>
