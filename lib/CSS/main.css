@@ -9,12 +9,20 @@ body {
     min-height: 100vh;
 }
 
+.loading {
+    text-align: center;
+}
+
 .content {
     flex: 1;
 }
 
 .contentwrapper {
     width: 100%;
+}
+
+.center-align {
+    text-align: center;
 }
 
 .fab {
@@ -24,7 +32,7 @@ body {
 
 .carousel {
     height: 250px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 .carousel.img {
