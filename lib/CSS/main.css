@@ -26,8 +26,10 @@ body {
 }
 
 .fab {
-    padding-bottom: 20%;
-    margin-right: 20%;    
+    position: fixed;
+    bottom: 11%;
+    right: 6%;
+    z-index: 1;
 }
 
 .carousel {
