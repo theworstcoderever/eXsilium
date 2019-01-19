@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -122,6 +121,118 @@
 						</v-card>
 					</v-dialog>
 					<v-divider></v-divider>
+					<!-- TODO: 来成都值班期间完成的事 -->
+					
+					<v-hover class="v-hover">
+						<v-card slot-scope="{ hover }" :class="`elevation-${ hover ? 12 : 2}`" class="mx-auto">
+							<v-parallax src="https://i0.hdslb.com/bfs/article/d25b005570ed2ee67d3e325797eafef7d47a29e9.jpg@1320w_826h.webp"
+							 height="300">
+							</v-parallax>
+							<v-card-title primary-title>
+								<div>
+									<div class="headline">
+										<ruby>女神异闻录5<rp>
+											<rt>Persona5</rt>
+											</rp>
+										</ruby>通关！
+									</div>
+									<span class="gray-text">
+										18,Jan,2019
+									</span>
+								</div>
+							</v-card-title>
+							<v-card-actions>
+								<v-tooltip bottom>
+									<v-btn slot="activator" icon color="" flat @click="">
+										<v-icon size="18">thumb_up</v-icon>
+									</v-btn>
+									<span>屌哦！</span>
+								</v-tooltip>
+								<v-tooltip bottom>
+									<v-btn slot="activator" icon color="" flat @click="">
+										<v-icon size="18">thumb_down</v-icon>
+									</v-btn>
+									<span>辣鸡！</span>
+								</v-tooltip>
+								<v-spacer></v-spacer>
+								<v-btn icon @click="showCard6 = !showCard6">
+									<v-icon>{{ showCard6 ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon>
+								</v-btn>
+							</v-card-actions>
+							<v-slide-y-transition>
+								<v-card-text v-show="showCard6">
+									<div id="persona" class="textholder">
+										<div name="card6-audio" class="center-align">
+											<iframe frameborder="0" marginwidth="0" marginheight="0" width=80% height=450 src="https://music.163.com/outchain/player?type=0&id=509020206&auto=0&height=430"></iframe>
+										</div>
+										<p>这个游戏是与异度之刃一起买的，多亏了值班，有了宝贵的上一休一的机会让老夫在2019年通关了这部2016年发布，2017年中文化的作品，距离上一部正统续作P4已过了将近
+											10年。尽管间隔时间很久，粉丝对这部作品的期待依然不减，足以说明女神系列的生命力。在JRPG日渐衰微的今天，P5却能在TGA2017正面刚红绿帽子，增加了我对
+										这部作品的期待。
+										</p>
+										<v-img src="http://img.52miji.com/52miji/2016/06/12/f67aa577c30e9992778thumb.jpg"></v-img>
+										<p>老夫算是P系列的半个粉丝，通关了前作P4G，尽管十分讨厌回合制，美术、音乐以及剧情却十分吸引我。整个游戏基于荣格的人格面具心理学，因此游戏角色的塑造
+											显得非常重要。实际游戏中也确实如此，每个角色的性格都十分鲜明。再说游戏的美术风格，游戏中大量使用了红黑的高对比，以及剪报字体，整体感觉非常时髦。
+										</p>
+										<p>作为一款JRPG，剧情当然是核心。本作不再是前作的架空都市，真实存在的城市为玩家重温高中生活添加了几分代入感。本作的主题是对命运的反抗与正义。
+											而成年人的世界中是鲜有正义的，这大概就是日式游戏为什么偏爱用少年做主角的原因吧。</p>
+										<v-img src="http://imgsrc.baidu.com/forum/pic/item/e9fb0f12b31bb0513cd7422e3b7adab44bede056.jpg"></v-img>
+										<p>关于游戏中的女主角，虽然高卷杏是可攻略女主角，但是我觉得他和龙司更加般配。在女主角中，我最喜欢的还是一二三，果然声音温柔的黑长直小姐姐才是王道！
+											<del>听说制作组原本想将一二三加入怪盗团，碍于游戏流程已经过长而未遂。</del>
+										</p>
+										<v-img src="http://img01.vgtime.com/game/cover/2017/04/27/170427191400624.jpg"></v-img>
+										<!-- TODO:添加修罗场的图片 -->
+										<p>要说哪里有扣分项的的话，就是一周目强制不让截图了。对于那些没兴趣打二周目的玩家来说，想截张图只能用手机。</p>
+										<v-container>
+											<v-layout class="justify-center" row wrap>
+												<v-flex xs12 lg5 mb-3>
+													<v-expansion-panel popout>
+														<v-expansion-panel-content>
+															<div slot="header">剧情</div>
+															<v-card>
+																<v-card-text>
+																	<div class="textholder">出于剧透考虑就不透露太详细了。<del>我能说当时我想看个详细的完整剧透都搜不到吗！
+																		总之是一帮热血青年打破命运的桎梏伸张正义和拯救世界的故事。
+																	</del></div>
+																</v-card-text>
+															</v-card>
+														</v-expansion-panel-content>
+														<v-expansion-panel-content>
+															<div slot="header">画面</div>
+															<v-card>
+																<v-card-text>
+																	<div class="textholder">本作的美术风格非常独特前卫，UI以过渡效果都十分酷炫，字体选用了切合怪盗主题的剪报体。这种风格在游
+																		戏发售后不久就遭某厂手游模仿，在玩家群体中引发了强烈反响。</div>
+																</v-card-text>
+															</v-card>
+														</v-expansion-panel-content>
+
+														<v-expansion-panel-content>
+															<div slot="header">音乐</div>
+															<v-card>
+																<v-card-text>
+																	<div class="textholder">
+																	本作的配乐依然优秀，风格多样，blues、摇滚、流行、爵士，首首都贴合游戏怪盗团的主题。BOSS战的THEME很燃，给我的印象最深，越
+																打越开心。</div>
+																</v-card-text>
+															</v-card>
+														</v-expansion-panel-content>
+														<v-expansion-panel-content>
+															<div slot="header">游戏性</div>
+															<v-card>
+																<v-card-text>
+																	<div class="textholder">作为一款JRPG，战斗系统维持了女神系列一贯的水准，加入了谈判和要挟等新要素，无需多说，优秀。</div>
+																</v-card-text>
+															</v-card>
+														</v-expansion-panel-content>
+													</v-expansion-panel>
+												</v-flex>
+											</v-layout>
+										</v-container>
+									</div>
+								</v-card-text>
+							</v-slide-y-transition>
+						</v-card>
+					</v-hover>
 
 					<div id="content-wrapper" class="content_wrapper">
 						<v-hover class="v-hover">
@@ -140,19 +251,25 @@
 									</div>
 								</v-card-title>
 								<v-card-actions>
-									<v-btn icon color="red" flat>
-										<v-icon size="18">thumb_up</v-icon>
-										屌哦！
-									</v-btn>
+									<v-tooltip bottom>
+										<v-btn slot="activator" icon color="" flat @click="">
+											<v-icon size="18">thumb_up</v-icon>
+										</v-btn>
+										<span>屌哦！</span>
+									</v-tooltip>
+									<v-tooltip bottom>
+										<v-btn slot="activator" icon color="" flat @click="">
+											<v-icon size="18">thumb_down</v-icon>
+										</v-btn>
+										<span>辣鸡！</span>
+									</v-tooltip>
 									<v-spacer></v-spacer>
-									<v-btn icon @click="showCard4 = !showCard4">
-										<v-icon>{{ showCard4 ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon>
+									<v-btn icon @click="showCard5 = !showCard5">
+										<v-icon>{{ showCard5 ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon>
 									</v-btn>
 								</v-card-actions>
-								<!-- TODO: 来成都值班期间完成的事 -->
-								<!-- TODO: 心之怪盗团https://pic4.zhimg.com/80/v2-edda86e88859c6405d9af00ec3723fef_hd.png -->
 								<v-slide-y-transition>
-									<v-card-text v-show="showCard4">
+									<v-card-text v-show="showCard5">
 										<!-- <aplayer autoplay :music="{title: 'secret base~君がくれたもの',
 								artist: '茅野爱衣', 
 								src: 'https://moeplayer.b0.upaiyun.com/aplayer/secretbase.mp3', 
@@ -192,17 +309,25 @@
 									</div>
 								</v-card-title>
 								<v-card-actions>
-									<v-btn icon color="red" flat>
-										<v-icon size="18">thumb_up</v-icon>
-										屌哦！
-									</v-btn>
+									<v-tooltip bottom>
+										<v-btn slot="activator" icon color="" flat @click="">
+											<v-icon size="18">thumb_up</v-icon>
+										</v-btn>
+										<span>屌哦！</span>
+									</v-tooltip>
+									<v-tooltip bottom>
+										<v-btn slot="activator" icon color="" flat @click="">
+											<v-icon size="18">thumb_down</v-icon>
+										</v-btn>
+										<span>辣鸡！</span>
+									</v-tooltip>
 									<v-spacer></v-spacer>
-									<v-btn icon @click="showCard1 = !showCard1">
-										<v-icon>{{ showCard1 ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon>
+									<v-btn icon @click="showCard4 = !showCard4">
+										<v-icon>{{ showCard4 ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon>
 									</v-btn>
 								</v-card-actions>
 								<v-slide-y-transition>
-									<v-card-text v-show="showCard1">
+									<v-card-text v-show="showCard4">
 										<div class="center-align">
 											<iframe frameborder="0" marginwidth="0" marginheight="0" width="100%" src="https://music.163.com/outchain/player?type=2&id=22660952&auto=0&height=130"></iframe>
 										</div><br>
@@ -212,39 +337,107 @@
 								</v-slide-y-transition>
 							</v-card>
 						</v-hover>
-
+						<!-- TODO：异度之刃2通关感想&游戏评测 -->
 						<v-hover class="v-hover">
 							<v-card slot-scope="{ hover }" :class="`elevation-${ hover ? 12 : 2}`" class="mx-auto">
-								<v-parallax src="http://img.mp.itc.cn/upload/20170428/34bd8c7d85b748b0b23471a236471482_th.jpg" height="350">
+								<v-parallax src="http://img1.gamersky.com/image2017/12/20171220qwb_5/20171220_141_qwb_2.jpg" height="300">
 								</v-parallax>
 								<v-card-title primary-title>
 									<div>
 										<div class="headline">
-											2019年的小目标
+											<ruby>异度之刃2<rp><rt>Xenoblade Chronicles2</rt></rp></ruby>通关！
 										</div>
 										<span class="gray-text">
-											15,Jan,2019
+											11,Jan,2019
 										</span>
 									</div>
 								</v-card-title>
 								<v-card-actions>
-									<v-btn icon color="red" flat>
-										<v-icon size="18">thumb_up</v-icon>
-										屌哦！
-									</v-btn>
+									<v-tooltip bottom>
+										<v-btn slot="activator" icon color="" flat @click="">
+											<v-icon size="18">thumb_up</v-icon>
+										</v-btn>
+										<span>屌哦！</span>
+									</v-tooltip>
+									<v-tooltip bottom>
+										<v-btn slot="activator" icon color="" flat @click="">
+											<v-icon size="18">thumb_down</v-icon>
+										</v-btn>
+										<span>辣鸡！</span>
+									</v-tooltip>
 									<v-spacer></v-spacer>
-									<v-btn icon @click="showCard2 = !showCard2">
-										<v-icon>{{ showCard2 ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon>
+									<v-btn icon @click="showCard3 = !showCard3">
+										<v-icon>{{ showCard3 ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon>
 									</v-btn>
 								</v-card-actions>
 								<v-slide-y-transition>
-									<v-card-text v-show="showCard2">
-										<v-container fluid>
-											<v-layout row wrap v-for="(goal,i) in goals" :key="i">
-												<v-checkbox color="orange lighten-2" :input-value="goal.isCompleted" disabled :label="goal.item"
-												 hide-details></v-checkbox>
-											</v-layout>
-										</v-container>
+									<v-card-text v-show="showCard3">
+										<div id="xenobladeii" class="textholder">
+											<p>从12月4日收到游戏后开撸，感谢培训，给了老夫足够多的空闲时间，断断续续打了一个多月，终于今天把这个游戏通关了，通关以后想法还是挺多的。</p>
+											<p>老夫并不是<ruby>异度<rp><rt>Xeno</rt></rp></ruby>系列的粉丝，本作也是老夫接触这个系列的第一作。通关这个游戏花了老夫60小时，仅通关了主
+												线剧情，屈指可数的几个支线（用来刷剧情需要异刃的羁绊），实际上并没有过多的沉浸在异度之刃的世界中。作为一款JRPG，本作的内容还是比较丰富：
+												冠名者，异刃牵绊圆环，牵绊对话，支线任务，就算参考攻略完全探索也至少需要200小时以上。</p>
+											<v-img src="http://8.pic.pc6.com/thumb/up/2018-1/20181151702122353905430_600_0.jpg"></v-img>
+											<p>游戏的背景设定在一个叫“幽界”的世界中。在这个世界里，人类和其他物种生活在巨神兽组成的大陆上，世界观比较宏大。</p>
+											<p>游戏的美术风格为卡通渲染，主角的人设比较讨好阿宅，标准的动漫画风。由于各个异刃的画师不同，造成整个游戏的美术风格不统一，除此之外并没有太多
+												可以挑刺的地方。<del>我永远喜欢光.JPG</del></p>
+											<v-img src="http://p.ssl.qhimg.com/t013fdf9028d7fda40c.jpg" alt="hikari&homura"></v-img><br>
+											<p class="center-align"><del>能不能尊重一下女性？</del></p>
+											<p>在就是游戏角色的塑造。各个角色塑造的很丰满，整个60小时下来，老夫也能够深刻的感受到莱克斯与同伴之间深厚的羁绊和成长。在游戏的最终章，光决定
+												接受牺牲自己拯救世界，老夫心里也有一丝蛋蛋的哀伤。<del>舍不得那双大白腿</del></p>
+											<p>尽管这个游戏有这样那样的瑕疵，但是瑕不掩瑜，本作依然是NS上不可多得的佳作。<del>一共才多少个3A？</del>推荐有NS的玩家入手。</p>
+											<p>适合人群：中度玩家、阿宅</p>
+											<v-container>
+												<v-layout class="justify-center" row wrap>
+													<v-flex xs12 lg5 mb-3>
+														<v-expansion-panel popout>
+															<v-expansion-panel-content>
+																<div slot="header">剧情</div>
+																<v-card>
+																	<v-card-text>
+																		<div class="textholder">世界观设定宏大，并没有什么硬伤，标准的14岁中二少年拯救世界的剧情。</div>
+																	</v-card-text>
+																</v-card>
+															</v-expansion-panel-content>
+															<v-expansion-panel-content>
+																<div slot="header">画面</div>
+																<v-card>
+																	<v-card-text>
+																		<div class="textholder">虽然是卡通渲染，但是人物的手部直接变成了我的世界那样的砖头手，老夫全程游玩于掌机
+																	模式下，动态分辨率简直不能直视，经常画面会糊成一片。传送之后物体表面贴图还需要一会儿才会加载出来，
+																	受制于NS机能，游戏画面并不是强项。</div>
+																	</v-card-text>
+																</v-card>
+															</v-expansion-panel-content>
+
+															<v-expansion-panel-content>
+																<div slot="header">音乐</div>
+																<v-card>
+																	<v-card-text>
+																		<div class="textholder">所有的BGM都是交响，紧密贴合场景，不会出现违和感。城镇的背景音乐还特意分开制作白天与黑夜。在音乐制作上，
+																		monolith一点也没有含糊。</div>
+																	</v-card-text>
+																</v-card>
+															</v-expansion-panel-content>
+															<v-expansion-panel-content>
+																<div slot="header">游戏性</div>
+																<v-card>
+																	<v-card-text>
+																		<div class="textholder"><p>整个游戏毁誉参半，最令人蛋疼的大概就是这个游戏的战斗系统。就战斗系统而言，设计的非常巧妙，但是巧妙的太过
+																		复杂，大大提高了上手难度，将那些不愿意深究战斗系统、数值搭配的玩家拒之门外（比如说我），异刃连击系统还要
+																		受制于AI队友的配合，拉低了战斗体验。</p>
+																		<p>异刃的培养成本太过昂贵，看到异刃的密密麻麻牵绊圆环就不禁让我感到一阵阵肝痛。（于是直到我把整个游戏打穿都
+																		没有一只异刃解锁了全部圆环。）</p>
+																		<p>最后一个扣分项就是场景设计。虽然场景宏大，层次分明，可以探索的地点很多，但是地图的设计没有体现出这种层次
+																		感，地图指引模糊，在主线流程中迷路了无数次。</p></div>
+																	</v-card-text>
+																</v-card>
+															</v-expansion-panel-content>
+														</v-expansion-panel>
+													</v-flex>
+												</v-layout>
+											</v-container>
+										</div>
 									</v-card-text>
 								</v-slide-y-transition>
 							</v-card>
@@ -265,27 +458,81 @@
 									</div>
 								</v-card-title>
 								<v-card-actions>
-									<v-btn icon color="red" flat>
-										<v-icon size="18">thumb_up</v-icon>
-										屌哦！
-									</v-btn>
+									<v-tooltip bottom>
+										<v-btn slot="activator" icon color="" flat @click="">
+											<v-icon size="18">thumb_up</v-icon>
+										</v-btn>
+										<span>屌哦！</span>
+									</v-tooltip>
+									<v-tooltip bottom>
+										<v-btn slot="activator" icon color="" flat @click="">
+											<v-icon size="18">thumb_down</v-icon>
+										</v-btn>
+										<span>辣鸡！</span>
+									</v-tooltip>
 									<v-spacer></v-spacer>
-									<v-btn icon @click="showCard3 = !showCard3">
-										<v-icon>{{ showCard3 ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon>
+									<v-btn icon @click="showCard2 = !showCard2">
+										<v-icon>{{ showCard2 ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon>
 									</v-btn>
 								</v-card-actions>
 								<v-slide-y-transition>
-									<v-card-text v-show="showCard3">虽然一天上班时间超过12小时，但是上一休一的感觉真不赖。2020年有机会必来，最好能够是在元旦期间值班，那就赚大发咯！</v-card-text>
+									<v-card-text v-show="showCard2">虽然一天上班时间超过12小时，但是上一休一的感觉真不赖。2020年有机会必来，最好能够是在元旦期间值班，那就赚大发咯！</v-card-text>
 								</v-slide-y-transition>
 							</v-card>
 						</v-hover>
 
+						<v-hover class="v-hover">
+							<v-card slot-scope="{ hover }" :class="`elevation-${ hover ? 12 : 2}`" class="mx-auto">
+								<v-parallax src="http://img.mp.itc.cn/upload/20170428/34bd8c7d85b748b0b23471a236471482_th.jpg" height="350">
+								</v-parallax>
+								<v-card-title primary-title>
+									<div>
+										<div class="headline">
+											2019年的小目标
+										</div>
+										<span class="gray-text">
+											1,Jan,2019
+										</span>
+									</div>
+								</v-card-title>
+								<v-card-actions>
+									<!-- TODO:将点赞功能组件化 -->
+									<v-tooltip bottom>
+										<v-btn slot="activator" icon color="" flat @click="">
+											<v-icon size="18">thumb_up</v-icon>
+										</v-btn>
+										<span>屌哦！</span>
+									</v-tooltip>
+									<v-tooltip bottom>
+										<v-btn slot="activator" icon color="" flat @click="">
+											<v-icon size="18">thumb_down</v-icon>
+										</v-btn>
+										<span>辣鸡！</span>
+									</v-tooltip>
+									<v-spacer></v-spacer>
+									<v-btn icon @click="showCard1 = !showCard1">
+										<v-icon>{{ showCard1 ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon>
+									</v-btn>
+								</v-card-actions>
+								<v-slide-y-transition>
+									<v-card-text v-show="showCard1">
+										<v-container fluid>
+											<v-layout row wrap v-for="(goal,i) in goals" :key="i">
+												<v-checkbox color="orange lighten-2" :input-value="goal.isCompleted" disabled :label="goal.item"
+												 hide-details></v-checkbox>
+											</v-layout>
+										</v-container>
+									</v-card-text>
+								</v-slide-y-transition>
+							</v-card>
+						</v-hover>
 					</div>
 
 					<!-- 以下是FAB -->
 					<div class="fab">
-						<v-speed-dial v-model="showspeeddial" top left direction="left" open-on-hover transition="slide-x-reverse-transition">
-							<v-btn slot="activator" v-show="showfab" color="blue lighten-1" fab dark large>
+						<!-- speeddial FAB -->
+						<!-- <v-speed-dial v-model="showspeeddial" top left direction="left" open-on-hover transition="slide-x-reverse-transition">
+							<v-btn slot="activator" v-model="showspeeddial" v-show="showfab" color="blue lighten-1" fab dark medium>
 								<v-icon>add</v-icon>
 								<v-icon>close</v-icon>
 							</v-btn>
@@ -298,7 +545,13 @@
 							<v-btn fab dark small color="orange" @click.stop="searchBox = !searchBox">
 								<v-icon>search</v-icon>
 							</v-btn>
-						</v-speed-dial>
+						</v-speed-dial> -->
+						<!-- animated FAB -->
+						<v-fab-transition>
+							<v-btn v-show="showfab" fab color="cyan" dark medium @click="backToTop">
+								<v-icon>arrow_upward</v-icon>
+							</v-btn>
+						</v-fab-transition>
 					</div>
 
 					<!-- 以下是footer -->
@@ -325,7 +578,6 @@
 													<v-icon size="18">person_add</v-icon>
 													源工的笑容由我们来守护
 												</span>
-
 											</v-card-text>
 
 											<v-card-actions>
@@ -351,6 +603,7 @@
 	</v-app>
 </body>
 <script>
+	// 点赞组件
 	// 创建aplayer组件
 	//Vue.component('aplayer', VueAPlayer)
 	var vm = new Vue({
@@ -366,6 +619,8 @@
 			showspeeddial: false,
 			showCard3: false,
 			showCard4: false,
+			showCard5: false,
+			showCard6: false,
 			caPics: [{
 					src: 'http://b2c.gaohangip.com//uploads/image/20180719/6366759285237224051597485.jpg'
 				},
@@ -445,7 +700,7 @@
 				{
 					item: "集齐赵雷的CD",
 					isCompleted: false
-				},{
+				}, {
 					item: "支出不超过计划",
 					isCompleted: false
 				},
@@ -456,7 +711,7 @@
 			handleScroll: function () {
 				var scrolltop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 				// console.log(scrolltop);
-				if (scrolltop > 400) {
+				if (scrolltop > 800) {
 					this.showfab = true;
 				} else {
 					this.showfab = false;
@@ -485,5 +740,4 @@
 		},
 	})
 </script>
-
 </html>
