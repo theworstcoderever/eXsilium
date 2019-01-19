@@ -21,6 +21,11 @@ body {
     width: 100%;
 }
 
+.textholder {
+    text-indent: 2em;
+
+}
+
 .center-align {
     text-align: center;
 }
@@ -28,7 +33,7 @@ body {
 .fab {
     position: fixed;
     bottom: 11%;
-    right: 6%;
+    right: 5%;
     z-index: 1;
 }
 
