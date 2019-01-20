@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>2019迎新春游园活动</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="icon" href="../eXsilium/lib/src/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+    <div id="app">
+        <v-app>
+            <v-content>
+                <v-img src="http://www.sumdoo.com/upload/ueditor/image/20190114/6368307264631161158700636.jpg" height="900">
+                    <v-container fluid fill-height>
+                        <v-layout align-center justify-center>
+                            <v-flex xs12 sm8 md4>
+                                <v-card class="elevation-24" height="300">
+                                    <v-toolbar dark color="pink lighten-2">
+                                        <v-toolbar-title>2019新春抽奖</v-toolbar-title>
+                                    </v-toolbar>
+                                    <v-card-text>
+                                    <v-layout align-center justify-center>
+                                        <v-flex xs12 sm8 md9>
+                                        <v-form>
+                                            <v-text-field readonly label="获奖者" prepend-icon="person" v-model="prizedPerson"></v-text-field>
+                                            <v-select label="奖项" prepend-icon="menu" :items="prizeItems" v-model="prizeItem"></v-select>
+                                        </v-form>
+                                        </v-flex>
+                                    </v-layout>
+                                    </v-card-text>
+                                    <v-card-actions>
+                                        <v-spacer></v-spacer>
+                                        <v-btn dark color="pink lighten-2" @click="startLottery()">{{ btnText }}</v-btn>
+                                        <v-spacer></v-spacer>
+                                        <el-button plain @click="affirmPrize">确认奖项</el-button>
+                                        <v-spacer></v-spacer>
+                                    </v-card-actions>
+                                </v-card>
+                            </v-flex>
+                        </v-layout>
+                    </v-container>
+                </v-img>
+            </v-content>
+        </v-app>
+    </div>
+</body>
+<script>
+var vm = new Vue({
+    el: '#app',
+    data: {
+        prizeItem: "",
+        prizeItems: ["一等奖","二等奖","三等奖"],
+        prizedPerson: "好运落谁家？",
+        personArray: [
+            "郑源","张三","李四","王五","段勇","周杰伦","新垣结衣","秦潇","梅润豪","石原里美","彭刚","冈田将生","孙笑川","杨戬","嬴政",
+            "比尔盖茨","蜘蛛侠","哈登","詹姆斯","杰克逊","罗志祥","杨颖","漾印送","齐云山","刘谋","PDD","艾吉奥","卡卡西","鸣人","鼬"
+        ],
+        pCount: 0,
+        quota: 6,
+        isRunning: false,
+        num: 0,
+        btnText: "开始抽奖",
+        time: 0
+    },
+    methods: {
+        startLottery: function(){
+            if(this.isRunning){
+                this.isRunning = false;
+                this.btnText = "停止抽奖";
+                this.startNum();
+            }else{
+                this.isRunning = true;
+                this.btnText = "开始抽奖";
+                this.stopNum();
+            }
+        },
+
+        startNum: function(){
+            this.num = Math.floor(Math.random() * this.pCount);
+            this.prizedPerson = this.personArray[this.num]; 
+            this.time = setTimeout(this.startNum, 0);
+        },
+        stopNum: function(){
+            this.pCount = this.personArray.length - 1;
+            clearInterval(this.time);
+            this.time = 0;
+        },
+
+        affirmPrize: function(){
+            if(this.quota <= 0){
+                this.$alert("提示", "抽奖已经结束!", {confirmButtonText: "确定"})
+            }else{
+                this.$notify({
+                title: "恭喜！",
+                message: "恭喜" + this.prizedPerson + "获得" +this.prizeItem,
+                duration: 0
+                })
+                this.personArray.splice(this.num,1);
+            };
+            this.quota = this.quota - 1;
+        }
+    },
+})
+</script>
+</html>
