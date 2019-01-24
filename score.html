@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>2019迎新春游园活动</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="icon" href="../eXsilium/lib/src/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="../eXsilium/lib/CSS/main.css">
+    <link rel="stylesheet" href="../eXsilium/lib/CSS/animate.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <v-app>
+            <v-content>
+                <v-img src="http://wx3.sinaimg.cn/large/aa3282acgy1fzhzmggzykj21hc0u0e81.jpg" height="850">
+                    <v-container fluid fill-height>
+                        <v-layout align-center justify-center>
+                            <v-flex>
+                                <transition enter-active-class="animated zoomIn" leave-active-class="animated zoomOut">
+                                    <v-data-table :headers="scoreHeaders" :items="teams">
+                                        <template slot="items" slot-scope="props">
+                                            <td class="text-lg-center">{{ props.item.name }}</td>
+                                            <td class="text-center">
+                                                <v-edit-dialog :return-value.sync="props.item.pullString" lazy>
+                                                    {{ props.item.pullString }}
+                                                    <v-text-field slot="input" v-model="props.item.pullString" label="edit"
+                                                        single-line counter></v-text-field>
+                                                </v-edit-dialog>
+                                            </td>
+                                            <td class="text-lg-center">
+                                                <v-edit-dialog :return-value.sync="props.item.drum" lazy>
+                                                    {{ props.item.drum }}
+                                                    <v-text-field slot="input" v-model="props.item.drum" label="edit"
+                                                        single-line counter></v-text-field>
+                                                </v-edit-dialog>
+                                            </td>
+                                            <td class="text-lg-center">
+                                                <v-edit-dialog :return-value.sync="props.item.hero" lazy>
+                                                    {{ props.item.hero }}
+                                                    <v-text-field slot="input" v-model="props.item.hero" label="edit"
+                                                        single-line counter></v-text-field>
+                                                </v-edit-dialog>
+                                            </td>
+                                            <td class="text-lg-center">
+                                                <v-edit-dialog :return-value.sync="props.item.ball" lazy>
+                                                    {{ props.item.ball }}
+                                                    <v-text-field slot="input" v-model="props.item.ball" label="edit"
+                                                        single-line counter></v-text-field>
+                                                </v-edit-dialog>
+                                            </td>
+                                            <td class="text-lg-center">
+                                                <v-edit-dialog :return-value.sync="props.item.step" lazy>
+                                                    {{ props.item.step }}
+                                                    <v-text-field slot="input" v-model="props.item.step" label="edit"
+                                                        single-line counter></v-text-field>
+                                                </v-edit-dialog>
+                                            </td>
+                                            <td class="text-lg-center">
+                                                <v-edit-dialog :return-value.sync="props.item.forest" laz>
+                                                    {{ props.item.forest }}
+                                                    <v-text-field slot="input" v-model="props.item.forest" label="edit"
+                                                        single-line counter></v-text-field>
+                                                </v-edit-dialog>
+                                            </td>
+                                            <td class="text-lg-center">
+                                                <v-edit-dialog :return-value.sync="props.item.wheel" lazy>
+                                                    {{ props.item.wheel }}
+                                                    <v-text-field slot="input" v-model="props.item.wheel" label="edit"
+                                                        single-line counter></v-text-field>
+                                                </v-edit-dialog>
+                                            </td>
+                                        </template>
+                                    </v-data-table>
+                                </transition>
+                            </v-flex>
+                        </v-layout>
+                    </v-container>
+                </v-img>
+            </v-content>
+        </v-app>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            scoreHeaders: [{
+                    text: "班组/项目",
+                    align: "center",
+                    sortable: false,
+                },
+                {
+                    text: "拔河",
+                    value: "pullString",
+                    align: "center",
+                    sortable: false
+                },
+                {
+                    text: "同心击鼓",
+                    value: "drum",
+                    align: "center",
+                    sortable: false
+                }, {
+                    text: "匠心英雄",
+                    value: "hero",
+                    align: "center",
+                    sortable: false
+                },
+                {
+                    text: "碰碰球",
+                    value: "ball",
+                    align: "center",
+                    sortable: false
+                },
+                {
+                    text: "巨人脚步",
+                    value: "step",
+                    align: "center",
+                    sortable: false
+                },
+                {
+                    text: "不倒森林",
+                    value: "forest",
+                    align: "center",
+                    sortable: false
+                },
+                {
+                    text: "风火轮",
+                    value: "wheel",
+                    align: "center",
+                    sortable: false
+                }
+            ],
+            teams: [{
+                    name: "输电运检一班",
+                    pullString: 0,
+                    drum: 0,
+                    hero: 0,
+                    ball: 0,
+                    step: 0,
+                    forest: 0,
+                    wheel: 0
+                }, {
+                    name: "输电运检二班",
+                    pullString: 0,
+                    drum: 0,
+                    hero: 0,
+                    ball: 0,
+                    step: 0,
+                    forest: 0,
+                    wheel: 0
+                },
+                {
+                    name: "输电运检三班",
+                    pullString: 0,
+                    drum: 0,
+                    hero: 0,
+                    ball: 0,
+                    step: 0,
+                    forest: 0,
+                    wheel: 0
+                },
+                {
+                    name: "输电运检四班",
+                    pullString: 0,
+                    drum: 0,
+                    hero: 0,
+                    ball: 0,
+                    step: 0,
+                    forest: 0,
+                    wheel: 0
+                },
+                {
+                    name: "输电运检五班",
+                    pullString: 0,
+                    drum: 0,
+                    hero: 0,
+                    ball: 0,
+                    step: 0,
+                    forest: 0,
+                    wheel: 0
+                },
+                {
+                    name: "输电运检十班",
+                    pullString: 0,
+                    drum: 0,
+                    hero: 0,
+                    ball: 0,
+                    step: 0,
+                    forest: 0,
+                    wheel: 0
+                },
+                {
+                    name: "变电检修一班",
+                    pullString: 0,
+                    drum: 0,
+                    hero: 0,
+                    ball: 0,
+                    step: 0,
+                    forest: 0,
+                    wheel: 0
+                },
+                {
+                    name: "变电检修二班",
+                    pullString: 0,
+                    drum: 0,
+                    hero: 0,
+                    ball: 0,
+                    step: 0,
+                    forest: 0,
+                    wheel: 0
+                },
+                {
+                    name: "变电运维班",
+                    pullString: 0,
+                    drum: 0,
+                    hero: 0,
+                    ball: 0,
+                    step: 0,
+                    forest: 0,
+                    wheel: 0
+                },
+                {
+                    name: "运检科",
+                    pullString: 0,
+                    drum: 0,
+                    hero: 0,
+                    ball: 0,
+                    step: 0,
+                    forest: 0,
+                    wheel: 0
+                },
+                {
+                    name: "安监科",
+                    pullString: 0,
+                    drum: 0,
+                    hero: 0,
+                    ball: 0,
+                    step: 0,
+                    forest: 0,
+                    wheel: 0
+                },
+                {
+                    name: "综合科",
+                    pullString: 0,
+                    drum: 0,
+                    hero: 0,
+                    ball: 0,
+                    step: 0,
+                    forest: 0,
+                    wheel: 0
+                }
+            ]
+        },
+        methods: {
+
+        },
+    })
+</script>
+
+</html>
