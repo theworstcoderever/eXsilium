@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="../eXsilium/lib/CSS/main.css">
+    <link rel="stylesheet" href="../eXsilium/lib/CSS/animate.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
@@ -17,11 +19,12 @@
     <div id="app">
         <v-app>
             <v-content>
-                <v-img src="http://www.sumdoo.com/upload/ueditor/image/20190114/6368307264631161158700636.jpg" height="900">
+                <v-img src="http://wx3.sinaimg.cn/large/aa3282acgy1fzhzmggzykj21hc0u0e81.jpg" height="850">
                     <v-container fluid fill-height>
                         <v-layout align-center justify-center>
                             <v-flex xs12 sm8 md4>
-                                <v-card class="elevation-24" height="300">
+                                <transition enter-active-class="animated zoomIn" leave-active-class="animated zoomOut">
+                                <v-card class="elevation-24" height="300" v-show="isLotteryShown">
                                     <v-toolbar dark color="pink lighten-2">
                                         <v-toolbar-title>2019新春抽奖</v-toolbar-title>
                                     </v-toolbar>
@@ -39,12 +42,35 @@
                                         <v-spacer></v-spacer>
                                         <v-btn dark color="pink lighten-2" @click="startLottery()">{{ btnText }}</v-btn>
                                         <v-spacer></v-spacer>
-                                        <el-button plain @click="affirmPrize">确认奖项</el-button>
-                                        <v-spacer></v-spacer>
+                                        <v-dialog v-model="dialog" width="550">
+                                            <v-btn dark color="pink lighten-2" @click="affirmPrize" slot="activator">确认奖项</v-btn >
+                                                <v-card class="text-lg-center">
+                                                    <v-layout align-center justify-center fluid>
+                                                        <v-flex xs12 sm8 md9>
+                                                            <v-img src="http://www.17sucai.com/preview/26528/2016-02-24/cj/images/gx.png" width="100"></v-img>  
+                                                        </v-flex>
+                                                    </v-layout>
+                                                    <v-card-text class="display-1" class="font-weight-bold">恭喜{{ prizedPerson }}获得{{ prizeItem }}！</v-card-text>
+                                                    <v-divider></v-divider>
+                                                     <v-card-actions>
+                                                         <v-spacer></v-spacer>
+                                                       <v-btn v-model="isPrizeTaken" color="pink lighten-2" dark @click="dialog = false">颁奖</v-btn>
+                                                    </v-card-actions>                                               
+                                                </v-card>
+                                        </v-dialog>
+                                    <v-spacer></v-spacer>
                                     </v-card-actions>
                                 </v-card>
+                            </transition>
                             </v-flex>
                         </v-layout>
+
+                        <div class="fab">
+                            <v-speed-dial v-model="fab" open-on-hover slide-y-reverse>
+                                <v-btn slot="activator" fab dark medium color="pink" @click="showLottery">抽奖</v-btn>
+                                <v-btn fab dark small color="red" @click="showScore">计分表</v-btn>
+                            </v-speed-dial>
+                        </div>
                     </v-container>
                 </v-img>
             </v-content>
@@ -55,6 +81,9 @@
 var vm = new Vue({
     el: '#app',
     data: {
+        isLotteryShown: false,
+        dialog: false,
+        isPrizeTaken: false,
         prizeItem: "",
         prizeItems: ["一等奖","二等奖","三等奖"],
         prizedPerson: "好运落谁家？",
@@ -63,13 +92,19 @@ var vm = new Vue({
             "比尔盖茨","蜘蛛侠","哈登","詹姆斯","杰克逊","罗志祥","杨颖","漾印送","齐云山","刘谋","PDD","艾吉奥","卡卡西","鸣人","鼬"
         ],
         pCount: 0,
-        quota: 6,
+        quota: 12,
         isRunning: false,
         num: 0,
         btnText: "开始抽奖",
         time: 0
     },
     methods: {
+        showLottery: function(){
+            this.isLotteryShown = ! this.isLotteryShown;
+        },
+        showScore: function(){
+            window.open("../eXsilium/score.html")
+        },
         startLottery: function(){
             if(this.isRunning){
                 this.isRunning = false;
@@ -100,7 +135,7 @@ var vm = new Vue({
                 this.$notify({
                 title: "恭喜！",
                 message: "恭喜" + this.prizedPerson + "获得" +this.prizeItem,
-                duration: 0
+                duration: 6000
                 })
                 this.personArray.splice(this.num,1);
             };
