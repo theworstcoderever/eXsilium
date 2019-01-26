@@ -21,62 +21,72 @@
     <div id="app">
         <v-app>
             <v-content>
-                <v-img src="http://wx3.sinaimg.cn/large/aa3282acgy1fzhzmggzykj21hc0u0e81.jpg" height="850">
+                <v-img src="http://wx2.sinaimg.cn/large/aa3282acgy1fzk9ejrbcjj21hc0u0e2q.jpg" height="1080">
                     <v-container fluid fill-height>
                         <v-layout align-center justify-center>
                             <v-flex>
                                 <transition enter-active-class="animated zoomIn" leave-active-class="animated zoomOut">
-                                    <v-data-table :headers="scoreHeaders" :items="teams">
+                                    <v-data-table :headers="scoreHeaders" :items="teams" disable-initial-sort>
                                         <template slot="items" slot-scope="props">
                                             <td class="text-lg-center">{{ props.item.name }}</td>
                                             <td class="text-center">
                                                 <v-edit-dialog :return-value.sync="props.item.pullString" lazy>
                                                     {{ props.item.pullString }}
-                                                    <v-text-field slot="input" v-model="props.item.pullString" label="edit"
+                                                    <v-text-field slot="input" v-model="props.item.pullString" label="edit" type="number"
                                                         single-line counter></v-text-field>
                                                 </v-edit-dialog>
                                             </td>
-                                            <td class="text-lg-center">
+                                            <td class="text-center">
                                                 <v-edit-dialog :return-value.sync="props.item.drum" lazy>
                                                     {{ props.item.drum }}
-                                                    <v-text-field slot="input" v-model="props.item.drum" label="edit"
+                                                    <v-text-field slot="input" v-model="props.item.drum" label="edit" type="number"
                                                         single-line counter></v-text-field>
                                                 </v-edit-dialog>
                                             </td>
                                             <td class="text-lg-center">
                                                 <v-edit-dialog :return-value.sync="props.item.hero" lazy>
                                                     {{ props.item.hero }}
-                                                    <v-text-field slot="input" v-model="props.item.hero" label="edit"
+                                                    <v-text-field slot="input" v-model="props.item.hero" label="edit" type="number"
                                                         single-line counter></v-text-field>
                                                 </v-edit-dialog>
                                             </td>
                                             <td class="text-lg-center">
                                                 <v-edit-dialog :return-value.sync="props.item.ball" lazy>
                                                     {{ props.item.ball }}
-                                                    <v-text-field slot="input" v-model="props.item.ball" label="edit"
+                                                    <v-text-field slot="input" v-model="props.item.ball" label="edit" type="number"
                                                         single-line counter></v-text-field>
                                                 </v-edit-dialog>
                                             </td>
                                             <td class="text-lg-center">
                                                 <v-edit-dialog :return-value.sync="props.item.step" lazy>
                                                     {{ props.item.step }}
-                                                    <v-text-field slot="input" v-model="props.item.step" label="edit"
+                                                    <v-text-field slot="input" v-model="props.item.step" label="edit" type="number"
                                                         single-line counter></v-text-field>
                                                 </v-edit-dialog>
                                             </td>
                                             <td class="text-lg-center">
                                                 <v-edit-dialog :return-value.sync="props.item.forest" laz>
                                                     {{ props.item.forest }}
-                                                    <v-text-field slot="input" v-model="props.item.forest" label="edit"
+                                                    <v-text-field slot="input" v-model="props.item.forest" label="edit" type="number"
                                                         single-line counter></v-text-field>
                                                 </v-edit-dialog>
                                             </td>
                                             <td class="text-lg-center">
                                                 <v-edit-dialog :return-value.sync="props.item.wheel" lazy>
                                                     {{ props.item.wheel }}
-                                                    <v-text-field slot="input" v-model="props.item.wheel" label="edit"
+                                                    <v-text-field slot="input" v-model="props.item.wheel" label="edit" type="number"
                                                         single-line counter></v-text-field>
                                                 </v-edit-dialog>
+                                            </td>
+                                            <td class="text-lg-center">
+                                                <v-edit-dialog :return-value.sync="props.item.karaoke" lazy>
+                                                    {{ props.item.karaoke }}
+                                                    <v-text-field slot="input" v-model="props.item.karaoke" label="edit" type="number"
+                                                        single-line counter></v-text-field>
+                                                </v-edit-dialog>
+                                            </td>
+                                            <td class="text-lg-center">
+                                                    {{ Number(props.item.pullString) + Number(props.item.drum) + Number(props.item.hero) + Number(props.item.ball) + Number(props.item.step) + Number(props.item.forest) + Number(props.item.karaoke) + Number(props.item.wheel) }}
                                             </td>
                                         </template>
                                     </v-data-table>
@@ -85,6 +95,10 @@
                         </v-layout>
                     </v-container>
                 </v-img>
+                <v-footer app color="red lighten-1" dark absolute>
+                    <v-spacer></v-spacer>
+                    powered by [ʃ]inkai/进阶
+                </v-footer>
             </v-content>
         </v-app>
     </div>
@@ -138,6 +152,18 @@
                     value: "wheel",
                     align: "center",
                     sortable: false
+                },
+                {
+                    text: "好声音",
+                    value: "karaoke",
+                    align: "center",
+                    sortable: false
+                },
+                {
+                    text: "总分",
+                    value: "sum",
+                    align: "center",
+                    sortable: true
                 }
             ],
             teams: [{
@@ -148,7 +174,9 @@
                     ball: 0,
                     step: 0,
                     forest: 0,
-                    wheel: 0
+                    wheel: 0,
+                    karaoke: 0,
+                    sum: 0
                 }, {
                     name: "输电运检二班",
                     pullString: 0,
@@ -157,7 +185,9 @@
                     ball: 0,
                     step: 0,
                     forest: 0,
-                    wheel: 0
+                    wheel: 0,
+                    karaoke: 0,
+                    sum: 0
                 },
                 {
                     name: "输电运检三班",
@@ -167,7 +197,9 @@
                     ball: 0,
                     step: 0,
                     forest: 0,
-                    wheel: 0
+                    wheel: 0,
+                    karaoke: 0,
+                    sum: 0
                 },
                 {
                     name: "输电运检四班",
@@ -177,7 +209,9 @@
                     ball: 0,
                     step: 0,
                     forest: 0,
-                    wheel: 0
+                    wheel: 0,
+                    karaoke: 0,
+                    sum: 0
                 },
                 {
                     name: "输电运检五班",
@@ -187,7 +221,9 @@
                     ball: 0,
                     step: 0,
                     forest: 0,
-                    wheel: 0
+                    wheel: 0,
+                    karaoke: 0,
+                    sum: 0
                 },
                 {
                     name: "输电运检十班",
@@ -197,7 +233,9 @@
                     ball: 0,
                     step: 0,
                     forest: 0,
-                    wheel: 0
+                    wheel: 0,
+                    karaoke: 0,
+                    sum: 0
                 },
                 {
                     name: "变电检修一班",
@@ -207,7 +245,9 @@
                     ball: 0,
                     step: 0,
                     forest: 0,
-                    wheel: 0
+                    wheel: 0,
+                    karaoke: 0,
+                    sum: 0
                 },
                 {
                     name: "变电检修二班",
@@ -217,7 +257,9 @@
                     ball: 0,
                     step: 0,
                     forest: 0,
-                    wheel: 0
+                    wheel: 0,
+                    karaoke: 0,
+                    sum: 0
                 },
                 {
                     name: "变电运维班",
@@ -227,42 +269,38 @@
                     ball: 0,
                     step: 0,
                     forest: 0,
-                    wheel: 0
+                    wheel: 0,
+                    karaoke: 0,
+                    sum: 0
                 },
                 {
-                    name: "运检科",
+                    name: "车班",
                     pullString: 0,
                     drum: 0,
                     hero: 0,
                     ball: 0,
                     step: 0,
                     forest: 0,
-                    wheel: 0
+                    wheel: 0,
+                    karaoke: 0,
+                    sum: 0
                 },
                 {
-                    name: "安监科",
+                    name: "管理组",
                     pullString: 0,
                     drum: 0,
                     hero: 0,
                     ball: 0,
                     step: 0,
                     forest: 0,
-                    wheel: 0
+                    wheel: 0,
+                    karaoke: 0,
+                    sum: 0
                 },
-                {
-                    name: "综合科",
-                    pullString: 0,
-                    drum: 0,
-                    hero: 0,
-                    ball: 0,
-                    step: 0,
-                    forest: 0,
-                    wheel: 0
-                }
             ]
         },
         methods: {
-
+          
         },
     })
 </script>
