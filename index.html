@@ -23,40 +23,40 @@
 				<div class="nav" style="width: 100%">
 					<v-navigation-drawer app v-model="drawer" fixed clipped>
 						<v-list class="pa-1">
-							<v-list-tile avatar>
-								<v-list-tile-avatar>
+							<v-list-item avatar>
+								<v-list-item-avatar>
 									<img src="http://image11.m1905.cn/uploadfile/s2010/0127/20100127083234166.jpg">
-								</v-list-tile-avatar>
+								</v-list-item-avatar>
 
-								<v-list-tile-content>
-									<v-list-tile-title>[ʃ]inKai/進階 ' S T E C H L A B</v-list-tile-title>
-								</v-list-tile-content>
-							</v-list-tile>
+								<v-list-item-content>
+									<v-list-item-title>[ʃ]inKai/進階 ' S T E C H L A B</v-list-item-title>
+								</v-list-item-content>
+							</v-list-item>
 						</v-list>
 						<v-divider></v-divider>
 
 						<v-list>
 							<v-list-group no-action>
-								<v-list-tile slot="activator">
-									<v-list-tile-content>
-										<v-list-tile-title>
+								<v-list-item slot="activator">
+									<v-list-item-content>
+										<v-list-item-title>
 											2019年
-										</v-list-tile-title>
-									</v-list-tile-content>
-								</v-list-tile>
+										</v-list-item-title>
+									</v-list-item-content>
+								</v-list-item>
 
-								<v-list-tile @click="">
-									<v-list-tile-content>
-										<v-list-tile-title>
+								<v-list-item @click="">
+									<v-list-item-content>
+										<v-list-item-title>
 											一月
-										</v-list-tile-title>
-									</v-list-tile-content>
-								</v-list-tile>
+										</v-list-item-title>
+									</v-list-item-content>
+								</v-list-item>
 							</v-list-group>
 						</v-list>
 					</v-navigation-drawer>
 
-					<v-toolbar dense color="light-blue lighten-2" clipped-left app>
+					<v-app-bar app dense color="light-blue lighten-2" clipped-left app>
 						<v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
 
 						<transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" :duration="300">
@@ -82,28 +82,28 @@
 								<v-icon>more_vert</v-icon>
 							</v-btn>
 							<v-list>
-								<v-list-tile onclick="window.open('https://weibo.com/u/2855436972')" @click="">
-									<v-list-tile-title>访问我的新浪微博</v-list-tile-title>
-								</v-list-tile>
-							<v-list-tile @click="">
-									<v-list-tile-title>备用</v-list-tile-title>
-								</v-list-tile>
-								<v-list-tile @click.stop="warn = !warn">
-									<v-list-tile-title>功能准备中</v-list-tile-title>
-								</v-list-tile>
-								<v-list-tile @click.stop="warn = !warn">
-									<v-list-tile-title>功能准备中</v-list-tile-title>
-								</v-list-tile>
-								<v-list-tile @click.stop="warn = !warn">
-									<v-list-tile-title>功能准备中</v-list-tile-title>
-								</v-list-tile>
+								<v-list-item onclick="window.open('https://weibo.com/u/2855436972')" @click="">
+									<v-list-item-title>访问我的新浪微博</v-list-item-title>
+								</v-list-item>
+							<v-list-item onclick="window.open('../eXsilium/lottery.html')" @click="">
+									<v-list-item-title>功能准备中</v-list-item-title>
+								</v-list-item>
+								<v-list-item @click.stop="warn = !warn">
+									<v-list-item-title>功能准备中</v-list-item-title>
+								</v-list-item>
+								<v-list-item @click.stop="warn = !warn">
+									<v-list-item-title>功能准备中</v-list-item-title>
+								</v-list-item>
+								<v-list-item @click.stop="warn = !warn">
+									<v-list-item-title>功能准备中</v-list-item-title>
+								</v-list-item>
 							</v-list>
 						</v-menu>
 					</v-toolbar>
 				</div>
 
 				<v-content>
-					<v-carousel name="carousel" class="carousel" height="250" hide-controls interval="3000">
+					<v-carousel name="carousel" class="carousel" height="250" show-arrows = false interval="3000">
 						<v-carousel-item v-for="(caPic,i) in caPics" :key="i" :src="caPic.src">
 						</v-carousel-item>
 					</v-carousel>
@@ -116,13 +116,60 @@
 							<v-card-text>功能开发中</v-card-text>
 							<v-card-actions>
 								<v-spacer></v-spacer>
-								<v-btn flat @click="warn = false">知道了</v-btn>
+								<v-btn text @click="warn = false">知道了</v-btn>
 							</v-card-actions>
 						</v-card>
 					</v-dialog>
 					<v-divider></v-divider>
-					<!-- TODO: 来成都值班期间完成的事 -->
-					
+
+					<!-- 冒险岛开放黑魔法师最终战斗 -->
+					<v-hover class="v-hover">
+						<v-card slot-scope="{ hover }" :class="`elevation-${ hover ? 12 : 2}`" class="mx-auto">
+							<v-parallax src="http://img.kuai8.com%2Fattaches%2Fpicture%2F20140103%2F201401031420339175.jpg"
+							 height="300">
+							</v-parallax>
+							<v-card-title primary-title>
+								<div>
+									<div class="headline">
+										<ruby>冒险岛<rp><rt>Maple Story</rt></rp></ruby>开放了击败黑魔法师剧情，大概我的童年在今天就真正结束了吧
+									</div>
+									<span class="gray-text">
+										20,Jan,2019
+									</span>
+								</div>
+							</v-card-title>
+							<v-card-actions>
+								<v-tooltip bottom>
+									<v-btn slot="activator" icon color="" text @click="">
+										<v-icon size="18">thumb_up</v-icon>
+									</v-btn>
+									<span>屌哦！</span>
+								</v-tooltip>
+								<v-tooltip bottom>
+									<v-btn slot="activator" icon color="" text @click="">
+										<v-icon size="18">thumb_down</v-icon>
+									</v-btn>
+									<span>辣鸡！</span>
+								</v-tooltip>
+								<v-spacer></v-spacer>
+								<v-btn icon @click="showCard7 = !showCard7">
+									<v-icon>{{ showCard7 ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon>
+								</v-btn>
+							</v-card-actions>
+							<v-slide-y-transition>
+								<v-card-text v-show="showCard7">
+									<div class="textholder">
+										<p>很久没有关注冒险岛的消息了。我和冒险岛</p>
+										<p>最后附上冒险岛的OST，致敬缅怀那段回不去的时光。</p>
+										<div class="center-align">
+											<iframe frameborder="no" marginwidth="0" marginheight="0" width=330 height=450 src="https://music.163.com/outchain/player?type=1&id=3263415&auto=0&height=430"></iframe>
+										</div>
+									</div>
+								</v-card-text>
+							</v-slide-y-transition>
+						</v-card>
+					</v-hover>
+
 					<v-hover class="v-hover">
 						<v-card slot-scope="{ hover }" :class="`elevation-${ hover ? 12 : 2}`" class="mx-auto">
 							<v-parallax src="https://img01.vgtime.com/game/cover/2017/04/06/170406165634565.jpg?x-oss-process=image/resize,m_pad,color_000000,w_1050,h_660" height="300">
@@ -142,13 +189,13 @@
 							</v-card-title>
 							<v-card-actions>
 								<v-tooltip bottom>
-									<v-btn slot="activator" icon color="" flat @click="">
+									<v-btn slot="activator" icon color="" text @click="">
 										<v-icon size="18">thumb_up</v-icon>
 									</v-btn>
 									<span>屌哦！</span>
 								</v-tooltip>
 								<v-tooltip bottom>
-									<v-btn slot="activator" icon color="" flat @click="">
+									<v-btn slot="activator" icon color="" text @click="">
 										<v-icon size="18">thumb_down</v-icon>
 									</v-btn>
 									<span>辣鸡！</span>
@@ -236,7 +283,7 @@
 					<div id="content-wrapper" class="content_wrapper">
 						<v-hover class="v-hover">
 							<v-card slot-scope="{ hover }" :class="`elevation-${ hover ? 12 : 2}`" class="mx-auto">
-								<v-carousel name="gameCarousel" height="300" hide-controls hide-delimiters interval="2000">
+								<v-carousel name="gameCarousel" height="300" show-arrows = "false" hide-delimiters interval="2000">
 									<v-carousel-item v-for="(gaPic,i) in gaPics" :key="i" :src="gaPic.src"></v-carousel-item>
 								</v-carousel>
 								<v-card-title primary-title>
@@ -251,13 +298,13 @@
 								</v-card-title>
 								<v-card-actions>
 									<v-tooltip bottom>
-										<v-btn slot="activator" icon color="" flat @click="">
+										<v-btn slot="activator" icon color="" text @click="">
 											<v-icon size="18">thumb_up</v-icon>
 										</v-btn>
 										<span>屌哦！</span>
 									</v-tooltip>
 									<v-tooltip bottom>
-										<v-btn slot="activator" icon color="" flat @click="">
+										<v-btn slot="activator" icon color="" text @click="">
 											<v-icon size="18">thumb_down</v-icon>
 										</v-btn>
 										<span>辣鸡！</span>
@@ -279,13 +326,13 @@
 										</div><br>
 										老夫最希望在2019年玩到的游戏如下：<br>
 										<v-list two-line v-for="(gaPic,i) in gaPics" :key="i">
-											<v-list-tile avatar @click="">
-												<v-list-tile-avatar img :src="gaPic.src"></v-list-tile-avatar>
-												<v-list-tile-content>
-													<v-list-tile-title v-html="gaPic.title"></v-list-tile-title>
-													<v-list-tile-sub-title v-html="gaPic.subtitle"></v-list-tile-sub-title>
-												</v-list-tile-content>
-											</v-list-tile>
+											<v-list-item avatar @click="">
+												<v-list-item-avatar img :src="gaPic.src"></v-list-item-avatar>
+												<v-list-item-content>
+													<v-list-item-title v-html="gaPic.title"></v-list-item-title>
+													<v-list-item-sub-title v-html="gaPic.subtitle"></v-list-item-sub-title>
+												</v-list-item-content>
+											</v-list-item>
 										</v-list>
 									</v-card-text>
 								</v-slide-y-transition>
@@ -309,13 +356,13 @@
 								</v-card-title>
 								<v-card-actions>
 									<v-tooltip bottom>
-										<v-btn slot="activator" icon color="" flat @click="">
+										<v-btn slot="activator" icon color="" text @click="">
 											<v-icon size="18">thumb_up</v-icon>
 										</v-btn>
 										<span>屌哦！</span>
 									</v-tooltip>
 									<v-tooltip bottom>
-										<v-btn slot="activator" icon color="" flat @click="">
+										<v-btn slot="activator" icon color="" text @click="">
 											<v-icon size="18">thumb_down</v-icon>
 										</v-btn>
 										<span>辣鸡！</span>
@@ -336,7 +383,7 @@
 								</v-slide-y-transition>
 							</v-card>
 						</v-hover>
-						<!-- TODO：异度之刃2通关感想&游戏评测 -->
+
 						<v-hover class="v-hover">
 							<v-card slot-scope="{ hover }" :class="`elevation-${ hover ? 12 : 2}`" class="mx-auto">
 								<v-parallax src="http://img1.gamersky.com/image2017/12/20171220qwb_5/20171220_141_qwb_2.jpg" height="300">
@@ -353,13 +400,13 @@
 								</v-card-title>
 								<v-card-actions>
 									<v-tooltip bottom>
-										<v-btn slot="activator" icon color="" flat @click="">
+										<v-btn slot="activator" icon color="" text @click="">
 											<v-icon size="18">thumb_up</v-icon>
 										</v-btn>
 										<span>屌哦！</span>
 									</v-tooltip>
 									<v-tooltip bottom>
-										<v-btn slot="activator" icon color="" flat @click="">
+										<v-btn slot="activator" icon color="" text @click="">
 											<v-icon size="18">thumb_down</v-icon>
 										</v-btn>
 										<span>辣鸡！</span>
@@ -458,13 +505,13 @@
 								</v-card-title>
 								<v-card-actions>
 									<v-tooltip bottom>
-										<v-btn slot="activator" icon color="" flat @click="">
+										<v-btn slot="activator" icon color="" text @click="">
 											<v-icon size="18">thumb_up</v-icon>
 										</v-btn>
 										<span>屌哦！</span>
 									</v-tooltip>
 									<v-tooltip bottom>
-										<v-btn slot="activator" icon color="" flat @click="">
+										<v-btn slot="activator" icon color="" text @click="">
 											<v-icon size="18">thumb_down</v-icon>
 										</v-btn>
 										<span>辣鸡！</span>
@@ -497,13 +544,13 @@
 								<v-card-actions>
 									<!-- TODO:将点赞功能组件化 -->
 									<v-tooltip bottom>
-										<v-btn slot="activator" icon color="" flat @click="">
+										<v-btn slot="activator" icon color="" text @click="">
 											<v-icon size="18">thumb_up</v-icon>
 										</v-btn>
 										<span>屌哦！</span>
 									</v-tooltip>
 									<v-tooltip bottom>
-										<v-btn slot="activator" icon color="" flat @click="">
+										<v-btn slot="activator" icon color="" text @click="">
 											<v-icon size="18">thumb_down</v-icon>
 										</v-btn>
 										<span>辣鸡！</span>
@@ -556,7 +603,7 @@
 					<!-- 以下是footer -->
 					<div class="footer">
 						<v-footer coclor="light-blue" dark height="auto">
-							<v-card class="flex" flat tile>
+							<v-card class="flex" text item>
 								<v-card-title class="light-blue">
 									<strong class="suheadding">荣耀的背后刻着一道孤独</strong>
 									<v-spacer></v-spacer>
@@ -581,7 +628,7 @@
 
 											<v-card-actions>
 												<v-spacer></v-spacer>
-												<v-btn flat @click="dialog = false">
+												<v-btn text @click="dialog = false">
 													知道了
 												</v-btn>
 											</v-card-actions>
@@ -599,7 +646,7 @@
 
 			</div>
 	</div>
-	</v-app>
+	</v-app-bar>
 </body>
 <script>
 	// 点赞组件
@@ -607,6 +654,7 @@
 	//Vue.component('aplayer', VueAPlayer)
 	var vm = new Vue({
 		el: '#app',
+		vuetify: new Vuetify(),
 		data: {
 			drawer: false,
 			dialog: false,
@@ -620,6 +668,7 @@
 			showCard4: false,
 			showCard5: false,
 			showCard6: false,
+			showCard7: false,
 			caPics: [{
 					src: 'http://b2c.gaohangip.com//uploads/image/20180719/6366759285237224051597485.jpg'
 				},
@@ -636,7 +685,7 @@
 					src: 'http://dingyue.nosdn.127.net/jjElLunYd8SBrNkLkgjlWkUHLaTRBFASPNVkn40MEK26G1528425708646.jpg'
 				},
 				{
-					src: 'http://qn.18touch.com/uploads/20180928/1538113729249094.jpg'
+					src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1568129585985&di=73d4d95df501f23dcf1d32eccbaaca7a&imgtype=0&src=http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Farchive%2F029d07e229bbdd9168616529f19cf6b313f81786.jpg'
 				}
 			],
 
