@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>2019年优秀照片评选</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="referrer" content="no-referrer">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="./main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <v-app style="background-attachment: fixed;background-image: url(./bg.jpg);">
+            <div class="appbar" style="width: 100%;">
+                <v-app-bar elevate-on-scroll absolute color="cyan" dark scroll-target="#scrollArea">
+                    <v-toolbar-title><ruby>2019年优秀照片评选<rp><rt>Moments of 2019</rt></rp></ruby></v-toolbar-title>
+                    <v-spacer></v-spacer>
+                    <v-text-field v-if="showSearchbox" dense label="输入作品编号" outlined style="margin-top: 25px;">
+                    </v-text-field>
+                    <v-spacer></v-spacer>
+                    <v-btn click="showSearchbox = !showSearchbox" icon>
+                        <v-icon>mdi-magnify</v-icon>
+                    </v-btn>
+                </v-app-bar>
+            </div>
+
+            <div id="scrollArea">
+
+                <!--v-carousel cycle interval="3000" show-arrows-on-hover>
+                    <v-carousel-item></v-carousel-item>
+                </v-carousel-->
+
+                <!--v-lazy-->
+                <v-row class="justify-center" style="margin-bottom: 10px;">
+                    <v-img elevation="12" style="width: 850px;margin-top:50px;" src='https://wx2.sinaimg.cn/large/aa3282acgy1gan30toau8j20rs0btadr.jpg'
+                        onclick="window.open('https://tp.wjx.top/jq/53582304.aspx')"></v-img>
+                </v-row>
+
+                <v-row class="justify-center" style="margin-bottom: 10px;">
+                    <v-card v-for="(pic,i) in pics" :key="i" style="width: 800px;margin-bottom: 10px;">
+                        <v-card-title>#{{ i + 1 }}号作品</v-card-title>
+                        <v-card elevation="8" style="margin-left: 5px;margin-right: 5px;">
+                            <v-img :src="pic.src"></v-img>
+                        </v-card>
+                        <v-card-actions>
+
+                            <v-tooltip bottom>
+                                <template v-slot:activator="{ on }">
+                                    <v-btn v-on="on" icon :color="likecolor" text @click="like">
+                                        <v-icon size="18">mdi-thumb-up</v-icon>
+                                    </v-btn>
+                                </template>
+                                <span>优秀！</span>
+                            </v-tooltip>
+                            <v-tooltip bottom>
+                                <template v-slot:activator="{ on }">
+                                    <v-btn v-on="on" icon :color="dislikecolor" text @click="dislike">
+                                        <v-icon size="18">mdi-thumb-down</v-icon>
+                                    </v-btn>
+                                </template>
+                                <span>还行！</span>
+                            </v-tooltip>
+                            
+                            <v-expansion-panels>
+                                <v-expansion-panel>
+                                    <v-expansion-panel-header>查看描述</v-expansion-panel-header>
+                                    <v-expansion-panel-content>{{ pic.description }}</v-expansion-panel-content>
+                                </v-expansion-panel>
+                            </v-expansion-panels>
+                        
+                        </v-card-actions>
+                    </v-card>
+                </v-row>
+                <!--/v-lazy-->
+            </div>
+
+            <div class="fab">
+
+                <v-fab-transition>
+                    <v-btn v-show="showfab" fab color="cyan" dark medium @click="backToTop"
+                        style="position: fixed;bottom: 10%;right: 5%;z-index: 1;">
+                        <v-icon>mdi-chevron-up</v-icon>
+                    </v-btn>
+                </v-fab-transition>
+
+            </div>
+
+            <v-footer color="cyan" padless>
+                <v-row>
+                    <v-col class="text-center">
+                        Powered by Vue & Vuetify</br>
+                        2020 ©Æsir
+                    </v-col>
+                </v-row>
+            </v-footer>
+
+        </v-app>
+
+    </div>
+</body>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        vuetify: new Vuetify(),
+        data() {
+            return {
+                showfab: false,
+                showSearchbox: false,
+                likecolor: 'grey',
+                dislikecolor: 'grey',
+                pics: [{
+                        src: 'https://wx2.sinaimg.cn/large/aa3282acgy1gag1wr18knj21400u04qu.jpg',
+                        description: '庆祝祖国七十华诞，输电运检三班党员无人机小组坚守500kV泸复一二三线保电一线，该线路为三大直流近区电网，西电东送工程重要线路'
+                    },
+                    {
+                        src: 'https://wx3.sinaimg.cn/large/aa3282acgy1gag1xr00t9j20u0140b2e.jpg',
+                        description: '2019年12月12日±800kV宾金线LT4联板加固检修'
+                    },
+                    {
+                        src: 'https://wx2.sinaimg.cn/large/aa3282acgy1gag1xu51v8j21400u0jxw.jpg',
+                        description: '500kV叙府变电站500kV叙泸二线年检'
+                    }, {
+                        src: 'https://wx2.sinaimg.cn/large/aa3282acgy1gag1yqjji2j21900u0b29.jpg',
+                        description: '500kV内江变电站220kV Ⅲ母线PT安装'
+                    },
+                    {
+                        src: 'https://wx1.sinaimg.cn/large/aa3282acgy1gag1ywqn9qj21430u01kz.jpg',
+                        description: '春节游园活动，团结一心'
+                    },
+                    {
+                        src: 'https://wx2.sinaimg.cn/large/aa3282acgy1gag1zqkfy1j21400u0b2c.jpg',
+                        description: '2019年2月23日洪沟站西南交直流协控装置正式投运。该项目为国家电网公司独立二次基建项目，和渝鄂直流背靠背联网工程安全稳定控制系统同步建设、同步投产。该项目投运将解决西南电网的低频问题，深刻影响整个西南电网。洪沟站作为西南交直流协控装置主站之一，在新建期间，运维人员严把施工管理、狠抓验收质量；在投运前期，多次开展培训，形式多样，请厂家讲课，分部专责讲课，统一视频授课，员工自我培训。努力提升运维技能，为西南交直流协控装置的顺利投运打下了坚实基础。'
+                    },
+                    {
+                        src: 'https://wx4.sinaimg.cn/large/aa3282acgy1gag1zxjmduj21400u07wl.jpg',
+                        description: '中华人民共和国建国70周年国庆期间为保障三大直流及近区电网运行安全稳定，线路运检三班党员先锋队带队进行特殊巡视，彰显带头作用。'
+                    },
+                    {
+                        src: 'https://wx2.sinaimg.cn/large/aa3282acgy1gag204574jj21400u04qq.jpg',
+                        description: '钢铁战士是自贡运维分部潘建在巡视复奉线59#铁塔时拍摄的。'
+                    },
+                    {
+                        src: 'https://wx1.sinaimg.cn/large/aa3282acgy1gag20eemhsj20u01407ce.jpg',
+                        description: '500kV泸州变电站35kV1-1号电容器组更换放电线圈后恢复引流线'
+                    },
+                    {
+                        src: 'https://wx3.sinaimg.cn/large/aa3282acgy1gag20hnqnwj21400u0jv8.jpg',
+                        description: '2019年10月4日，国庆70周年保电之际,饶军来到普洪三线施工现场，对线路附近的施工情况进行了详细深入地了解，告知施工方超高压线路的安全距离，保证了施工期间外破点位风险控制，同时也保障保电期间线路安全稳定运行。'
+                    },
+                    {
+                        src: 'https://wx4.sinaimg.cn/large/aa3282acgy1gag212a0acj20qo0zkahr.jpg',
+                        description: '荣获四川省工会举办的继电保护竞赛个人第一名的蒋枝同志，不仅理论知识扎实，在变电站现场工作更是兢兢业业，挥汗如雨，主动发挥劳模精神，带着大家完成好每一项工作，确保二次设备安全稳定运行。'
+                    },
+                    {
+                        src: 'https://wx2.sinaimg.cn/large/aa3282acgy1gag216bzgjj21400u0djv.jpg',
+                        description: '线路巡视途中开展电力设施保护宣传，加强民企合作，由点及面，携手共护电力安全'
+                    },
+                    {
+                        src: 'https://wx2.sinaimg.cn/large/aa3282acgy1gag21a0oefj21400u0jxd.jpg',
+                        description: '线路巡视途中开展电力设施保护宣传，加强民企合作，保护电力安全人人有责。'
+                    },
+                    {
+                        src: 'https://wx4.sinaimg.cn/large/aa3282acgy1gag21f3p1lj20u0140x6q.jpg',
+                        description: '500kV洪沟变电站SVC改造工程临近尾声，工作负责人正在紧固端子，反复核查。洪沟站SVC改造工程持续数月，变电检修二班全程参与该项目的实施、监管，陈利、刘梅等班组员工为了项目顺利完成，周末加班已是家常便饭。'
+                    },
+                    {
+                        src: 'https://wx4.sinaimg.cn/large/aa3282acgy1gag21jj7tpj21400u0q7t.jpg',
+                        description: '洪内一二线X光检测（2）'
+                    },
+                    {
+                        src: 'https://wx3.sinaimg.cn/large/aa3282acgy1gag21vidndj20u00wr4qr.jpg',
+                        description: '通道树竹清理'
+                    },
+                    {
+                        src: 'https://wx2.sinaimg.cn/large/aa3282acgy1gag222urtzj21900u0kjo.jpg',
+                        description: '2019年6月21日宜宾长宁宾金线接地极线路震后特巡'
+                    },
+                    {
+                        src: 'https://wx3.sinaimg.cn/large/aa3282acgy1gag227mh6sj20u0140njb.jpg',
+                        description: '500kV洪沟变电站电抗器温度计更换现场。现场下着淅淅沥沥的小雨，变电检修二班作业人员在寒风中对电抗器温度计进行更换处理，高效完成消缺工作。'
+                    },
+                    {
+                        src: 'https://wx2.sinaimg.cn/large/aa3282acgy1gag22c6ajmj20vs0huqv5.jpg',
+                        description: '为百姓协调线路通道树竹赔偿'
+                    },
+                    {
+                        src: 'https://wx3.sinaimg.cn/large/aa3282acgy1gag22i5c5cj20u0140e81.jpg',
+                        description: '500kV泸州变电站35kVⅠ母线年检'
+                    },
+                    {
+                        src: 'https://wx4.sinaimg.cn/large/aa3282acgy1gag22y6otvj21900u01l1.jpg',
+                        description: '2019年6月21日宜宾长宁宾金线接地极线路震后特巡 (2)'
+                    },
+                    {
+                        src: 'https://wx2.sinaimg.cn/large/aa3282acgy1gag232eznnj21400u0dlq.jpg',
+                        description: '洪内一二线X光检测'
+                    },
+                    {
+                        src: 'https://wx1.sinaimg.cn/large/aa3282acgy1gag237f271j21400u043i.jpg',
+                        description: '这是新员工和畅的第一次常规巡视，图为他跟师兄们巡视溪宾线。在登顶大陆梁子后，大家一起留下了这张具有纪念意义的合影。'
+                    },
+                    {
+                        src: 'https://wx2.sinaimg.cn/large/aa3282acgy1gag23bf90jj20u014077o.jpg',
+                        description: '洪遂线检修作业远程管控终端'
+                    },
+                    {
+                        src: 'https://wx1.sinaimg.cn/large/aa3282acgy1gag23hxb2sj20u0140kjo.jpg',
+                        description: '变电运维班李磊到人民大会堂参加2019年庆祝“五一”国际劳动节暨全国五一劳动奖和全国工人先锋号表彰大会，现场聆听全国人大副委员长、全国总工会主席王东明同志的重要讲话，与许多全国劳模等先进代表近距离接触并开展了沟通交流'
+                    },
+                    {
+                        src: 'https://wx4.sinaimg.cn/large/aa3282acgy1gag23wj9zuj21400u0nph.jpg',
+                        description: '交流和骑行是自贡运维分部工作人员在锦苏、复奉线检修期间拍摄的图片，具体拍摄人员不详。由田德均取名。'
+                    },
+                    {
+                        src: 'https://wx4.sinaimg.cn/large/aa3282acgy1gag240iq0uj20u0140tf9.jpg',
+                        description: '图为在巡视宾叙一线60#-61#过程中，陈飞跟巡视组的同事们一起清理通道中的杂树和竹子，经过近两个小时的工作，大家终于将通道清理完成，保障了线路安全稳定运行。'
+                    },
+                    {
+                        src: 'https://wx3.sinaimg.cn/large/aa3282acgy1gag246zt5sj21hc0u01ky.jpg',
+                        description: '日出是自贡运维分部安装的可视化装置拍摄的锦苏线917#早上日出时的景象。'
+                    },
+                    {
+                        src: 'https://wx1.sinaimg.cn/mw690/aa3282acgy1gag24bdv41j20cy08mafe.jpg',
+                        description: '班组指导工作'
+                    },
+                    {
+                        src: 'https://wx1.sinaimg.cn/large/aa3282acgy1gag24jdt2tj21400u07wl.jpg',
+                        description: '爬山涉水，披荆斩棘，任他汗流浃背，老师傅依然恪尽职守，确保线路安全。'
+                    },
+                    {
+                        src: 'https://wx4.sinaimg.cn/large/aa3282acgy1gag24v9mbwj21400u0x6p.jpg',
+                        description: '交流和骑行是自贡运维分部工作人员在锦苏、复奉线检修期间拍摄的图片，具体拍摄人员不详。由田德均取名。'
+                    },
+                    {
+                        src: 'https://wx2.sinaimg.cn/large/aa3282acgy1gan2rfkbq8j20u0140x6t.jpg',
+                        description: '国庆佳节，蹲守外破现场，核实安全措施，严防外力破坏。'
+                    },
+                    {
+                        src: 'https://wx3.sinaimg.cn/mw690/aa3282acgy1gag255iflej20g20c1aob.jpg',
+                        description: '地网焊接'
+                    },
+                    {
+                        src: 'https://wx2.sinaimg.cn/large/aa3282acgy1gag25aqqgqj21400u00wc.jpg',
+                        description: '冬至包饺子大赛勇夺冠军'
+                    },
+                    {
+                        src: 'https://wx2.sinaimg.cn/mw690/aa3282acgy1gag25ihenaj20m80goq68.jpg',
+                        description: '自贡运维分部变电检修二班是一支力量雄厚经验丰富的队伍，随着这两年新鲜血液的不断注入我们亦是一支年轻且充满活力的队伍，图为变电检修二班青年突击队。'
+                    },
+                    {
+                        src: 'https://wx2.sinaimg.cn/large/aa3282acgy1gag25zxctpj21900u0x6v.jpg',
+                        description: '传递与追“球”是自贡运维分部田德均拍摄的，图片反应自贡运维分部开展“学习强国、运动强身”主题活动进行足球赛，体现了广大职工一种勇于拼搏、胜不骄、败不妥的精神。'
+                    },
+                    {
+                        src: 'https://wx1.sinaimg.cn/mw690/aa3282acgy1gag266osbej20u0140445.jpg',
+                        description: '500kV泸州变电站35kV1-1号电容器组放电线圈大修'
+                    },
+                    {
+                        src: 'https://wx2.sinaimg.cn/large/aa3282acgy1gag26l3s9xj20u0140e87.jpg',
+                        description: '2019年12月20日500kV普洪二线常规巡视'
+                    },
+                    {
+                        src: 'https://wx3.sinaimg.cn/mw690/aa3282acgy1gag26p9c1ij21400u0aew.jpg',
+                        description: '自贡运维分部变电检修二班里巾帼不让须眉的女将们！自贡运维分部变电检修二班里女同志接近一半，可以说撑起了分部二次专业的半边天，为分部所辖变电二次设备安全可靠运行贡献了巨大力量。'
+                    },
+                    {
+                        src: 'https://wx3.sinaimg.cn/large/aa3282acgy1gag26u8n61j20u0140qb7.jpg',
+                        description: '2019年12月25日，文珺在进行向复一二线27#塔塔基清理工作，清除了塔基周围的一笼竹子，消除了线路运行中的隐患。'
+                    },
+                    {
+                        src: 'https://wx1.sinaimg.cn/large/aa3282acgy1gag276b1e8j20u01401kz.jpg',
+                        description: '图为刘小龙在向复一二三四线进行信息员建立和慰问品发放工作，向周围农户普及了电力设施保护知识，在遇到突发情况时可以得到及时反馈，保障电力设施安全。'
+                    },
+                    {
+                        src: 'https://wx3.sinaimg.cn/large/aa3282acgy1gag27aect2j21400u0dlm.jpg',
+                        description: '开展“五通”专项培训学习'
+                    },
+                    {
+                        src: 'https://wx1.sinaimg.cn/large/aa3282acgy1gag27fgm40j20u0140gqj.jpg',
+                        description: '普洪一线地线更换工作'
+                    },
+                    {
+                        src: 'https://wx2.sinaimg.cn/large/aa3282acgy1gag27pytkbj21400u0e88.jpg',
+                        description: '电力雄鹰是自贡运维分部飞巡人员熊俊峰在锦苏线599#检修现场拍摄的。由田德均取名。'
+                    },
+                    {
+                        src: 'https://wx4.sinaimg.cn/large/aa3282acgy1gag27wixllj21400u0kjm.jpg',
+                        description: '支援±800kV复龙换流站年度检修'
+                    },
+                    {
+                        src: 'https://wx1.sinaimg.cn/large/aa3282acgy1gag288iragj21hc0u0npe.jpg',
+                        description: '对称是自贡运维分部田德均在2017年复奉贤间隔棒大修期间照片拍摄的图片，反应大修期间工作有序推进'
+                    },
+                    {
+                        src: 'https://wx4.sinaimg.cn/large/aa3282acgy1gag28ghtjvj20qo0zkjvg.jpg',
+                        description: '敢问路在何方和专注是自贡运维分部运检人员在巡视锦苏、复奉线的过程中拍摄的，具体作者不详，反应巡视工作的艰辛，工作人员对待工作的认真负责的态度。由田德均取名。'
+                    },
+                    {
+                        src: 'https://wx3.sinaimg.cn/large/aa3282acgy1gag28o1bqzj21400u01l1.jpg',
+                        description: '面对急难险重任务时，分部全体员工冲锋在前，高效处置内江威远5.4级地震, 500kV内江站220kVI母避雷器断裂、CVT受损、1号主变A相高压侧套管漏油; 12月18日，内江资中5.2级地震,500kV内江站1号主变A相高压侧套管渗油。'
+                    },
+                    {
+                        src: 'https://wx2.sinaimg.cn/large/aa3282acgy1gag28t6jzyj20zk0lc767.jpg',
+                        description: '敢问路在何方和专注是自贡运维分部运检人员在巡视锦苏、复奉线的过程中拍摄的，具体作者不详，反应巡视工作的艰辛，工作人员对待工作的认真负责的态度。由田德均取名。'
+                    },
+                    {
+                        src: 'https://wx2.sinaimg.cn/large/aa3282acgy1gag291jxlrj21400u04qu.jpg',
+                        description: '2019年12月1日500kV普洪一线架空地线更换555号大号侧跨越铁路施工封网拆除工作'
+                    },
+                    {
+                        src: 'https://wx4.sinaimg.cn/large/aa3282acgy1gag29awxuaj20m80gon0d.jpg',
+                        description: '2019年度复龙换流站年度检修现场，工作开始前几日晚上，江晓龙正在为即将进场的作业人员批改安规试卷。龙哥可以说是咱们变电检修二班里的“劳模”了，几十年如一日，兢兢业业坚守工作岗位，活到老学到老，是青年员工学习好榜样。'
+                    },
+                    {
+                        src: 'https://wx4.sinaimg.cn/large/aa3282acgy1gag2ak39chj21900u0b2f.jpg',
+                        description: '传递与追“球”是自贡运维分部田德均拍摄的，图片反应自贡运维分部开展“学习强国、运动强身”主题活动进行足球赛，体现了广大职工一种勇于拼搏、胜不骄、败不妥的精神。'
+                    },
+                    {
+                        src: 'https://wx1.sinaimg.cn/large/aa3282acgy1gag2arl7xgj21900u0b2d.jpg',
+                        description: '落日是自贡运维分部田德均拍摄的锦苏线562-563之间的黄昏时铁塔在李花中的美景。'
+                    },
+                    {
+                        src: 'https://wx3.sinaimg.cn/large/aa3282acgy1gag2awx2ikj20u018dqv5.jpg',
+                        description: '面对急难险重任务时，分部全体员工冲锋在前，高效处置内江威远5.4级地震, 500kV内江站220kVI母避雷器断裂、CVT受损、1号主变A相高压侧套管漏油; 12月18日，内江资中5.2级地震,500kV内江站1号主变A相高压侧套管渗油'
+                    },
+                ],
+            }
+        },
+        methods: {
+            handleScroll: function () {
+                var scrolltop = window.pageYOffset || document.documentElement.scrollTop || document.body
+                    .scrollTop;
+                //console.log(scrolltop);
+                if (scrolltop > 800) {
+                    this.showfab = true;
+                } else {
+                    this.showfab = false;
+                }
+            },
+            backToTop: function () {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+                // var currentScrollTop = document.documentElement.scrollTop;			
+            },
+            like: function () {
+                if (this.likecolor == "red") {
+                    this.likecolor == "grey";
+                } else {
+                    this.likecolor == "red";
+                }
+            },
+
+            dislike: function () {
+                if (this.dislikecolor == "red") {
+                    this.dislikecolor == "grey";
+                } else {
+                    this.dislikecolor == "red";
+                }
+            }
+        },
+        // 	backToTopSmooth: function(){
+        // 		while(currentScrollTop > 0){
+        // 			currentScrollTop = currentScrollTop - 10;
+        // 			document.documentElement.scrollTop = currentScrollTop;
+        // 			document.body.scrollTop = currentScrollTop;
+        // 			setInterval(this.backToTopSmooth(),100)
+        // 	}
+        // },
+
+        mounted() {
+            window.addEventListener('scroll', this.handleScroll)
+        },
+        destroyed() {
+            window.removeEventListener('scroll', this.handleScroll)
+        },
+    })
+</script>
+
+</html>
