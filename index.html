@@ -11,13 +11,20 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script type="text/javascript">
+        window.onload = function(){
+            alert("点赞按钮并非有效，请浏览图片后返回页面顶部点击横幅参与投票！")
+        }
+    </script>
 </head>
 
 <body>
     <div id="app">
-        <v-app style="background-attachment: fixed;background-image: url(./bg.jpg);">
+        <v-app style="background-attachment: fixed;background-image: url('https://wx4.sinaimg.cn/large/aa3282acgy1gau4mog4t4j20u01hc12c.jpg');">
             <div class="appbar" style="width: 100%;">
                 <v-app-bar elevate-on-scroll absolute color="cyan" dark scroll-target="#scrollArea">
                     <v-toolbar-title><ruby>2019年优秀照片评选<rp><rt>Moments of 2019</rt></rp></ruby></v-toolbar-title>
@@ -39,12 +46,12 @@
 
                 <!--v-lazy-->
                 <v-row class="justify-center" style="margin-bottom: 10px;">
-                    <v-img elevation="12" style="width: 850px;margin-top:50px;" src='https://wx2.sinaimg.cn/large/aa3282acgy1gan30toau8j20rs0btadr.jpg'
+                    <v-img elevation="12" style="margin-top:50px;" src='https://wx2.sinaimg.cn/large/aa3282acgy1gan30toau8j20rs0btadr.jpg'
                         onclick="window.open('https://tp.wjx.top/jq/53582304.aspx')"></v-img>
                 </v-row>
 
                 <v-row class="justify-center" style="margin-bottom: 10px;">
-                    <v-card v-for="(pic,i) in pics" :key="i" style="width: 800px;margin-bottom: 10px;">
+                    <v-card v-for="(pic,i) in pics" :key="i" style="width: 900px;margin-top:15px;margin-bottom: 15px;">
                         <v-card-title>#{{ i + 1 }}号作品</v-card-title>
                         <v-card elevation="8" style="margin-left: 5px;margin-right: 5px;">
                             <v-img :src="pic.src"></v-img>
@@ -114,8 +121,8 @@
             return {
                 showfab: false,
                 showSearchbox: false,
-                likecolor: 'grey',
-                dislikecolor: 'grey',
+                likecolor: '',
+                dislikecolor: '',
                 pics: [{
                         src: 'https://wx2.sinaimg.cn/large/aa3282acgy1gag1wr18knj21400u04qu.jpg',
                         description: '庆祝祖国七十华诞，输电运检三班党员无人机小组坚守500kV泸复一二三线保电一线，该线路为三大直流近区电网，西电东送工程重要线路'
@@ -351,19 +358,25 @@
                 // var currentScrollTop = document.documentElement.scrollTop;			
             },
             like: function () {
-                if (this.likecolor == "red") {
-                    this.likecolor == "grey";
-                } else {
-                    this.likecolor == "red";
-                }
+               this.$notify({
+                   title: '注意',
+                   message: '请返回页面顶部点击横幅参与投票',
+                   type: 'warning',
+                   duration: '3000'
+               });
+               this.likecolor = 'deep-orange';
+               this.dislikecolor = 'grey'
             },
 
             dislike: function () {
-                if (this.dislikecolor == "red") {
-                    this.dislikecolor == "grey";
-                } else {
-                    this.dislikecolor == "red";
-                }
+                this.$notify({
+                   title: '注意',
+                   message: '请返回页面顶部点击横幅参与投票',
+                   type: 'warning',
+                   duration: '3000'
+               });
+               this.likecolor = 'grey';
+               this.dislikecolor = 'green'
             }
         },
         // 	backToTopSmooth: function(){
